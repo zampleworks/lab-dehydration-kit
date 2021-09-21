@@ -1,0 +1,22 @@
+﻿Name;DN
+%ObjectsRoot%;OU=ZWCORP,DC=zwks,DC=xyz
+%GroupsOU%;OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%UsersOU%;OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
+%ComputersOU%;OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
+%SvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
+%EmployeeAcctsOU%;OU=Employees,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
+%AdminAcctsOU%;OU=Admins,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
+%ClientsOU%;OU=Clients,OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
+%ServersOU%;OU=Servers,OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
+%RolesOU%;OU=Roles,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%AdminRolesOU%;OU=AdminRoles,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%PermissionsOU%;OU=Permissions,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%ClientGroupsOU%;OU=Client Groups,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%ServerGroupsOU%;OU=Server Groups,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
+%DSControlOU%;OU=ADControl,DC=zwks,DC=xyz
+%DSControlGroupsOU%;OU=Groups,OU=ADControl,DC=zwks,DC=xyz
+%DSControlUsersOU%;OU=Users,OU=ADControl,DC=zwks,DC=xyz
+%DSControlAdminsOU%;OU=Admins,OU=Users,OU=ADControl,DC=zwks,DC=xyz
+%DSControlSvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=ADControl,DC=zwks,DC=xyz
+%DSControlPermsOU%;OU=Permissions,OU=Groups,OU=ADControl,DC=zwks,DC=xyz
+%DSControlRolesOU%;OU=Roles,OU=Groups,OU=ADControl,DC=zwks,DC=xyz

@@ -1,0 +1,9 @@
+**/.DS_Store/
+**/*.zip
+ADFS
+ADCS
+ServerDeploy
+SQL
+*.iso
+mkServerDeploy.sh
+.DS_Store

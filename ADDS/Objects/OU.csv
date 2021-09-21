@@ -1,0 +1,22 @@
+Parent;Name;CN;DisplayName;Created
+%RootDN%;ObjectsRoot;%DomainNBName%;%DomainNBName%;false
+%ObjectsRoot%;GroupsOU;Groups;Groups;false
+%ObjectsRoot%;UsersOU;Users;Users;false
+%ObjectsRoot%;ComputersOU;Computers;Computers;false
+%UsersOU%;SvcAcctsOU;ServiceAccounts;ServiceAccounts;false
+%UsersOU%;EmployeeAcctsOU;Employees;Employees;false
+%UsersOU%;AdminAcctsOU;Admins;Admins;false
+%ComputersOU%;ClientsOU;Clients;Clients;false
+%ComputersOU%;ServersOU;Servers;Servers;false
+%GroupsOU%;RolesOU;Roles;Roles;false
+%GroupsOU%;AdminRolesOU;AdminRoles;AdminRoles;false
+%GroupsOU%;PermissionsOU;Permissions;Permissions;false
+%GroupsOU%;ClientGroupsOU;Client Groups;Client Groups;false
+%GroupsOU%;ServerGroupsOU;Server Groups;Server Groups;false
+%RootDN%;DSControlOU;ADControl;ADControl;false
+%DSControlOU%;DSControlGroupsOU;Groups;Groups;false
+%DSControlOU%;DSControlUsersOU;Users;Users;false
+%DSControlUsersOU%;DSControlAdminsOU;Admins;Admins;false
+%DSControlUsersOU%;DSControlSvcAcctsOU;ServiceAccounts;ServiceAccounts;false
+%DSControlGroupsOU%;DSControlPermsOU;Permissions;Permissions;false
+%DSControlGroupsOU%;DSControlRolesOU;Roles;Roles;false

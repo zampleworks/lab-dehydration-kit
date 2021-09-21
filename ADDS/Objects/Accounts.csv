@@ -1,0 +1,19 @@
+Name;Samaccountname
+SQL IS;sqlissvc
+SQL AS;sqlassvc
+SQL RS;sqlrssvc
+SQL;sqlsvc
+SQL Agent;sqlagentsvc
+WebSvc;websvc
+IAM account;iamsvc
+ADFS service account;adfssvc
+MIM CM Web pool account;mimcm_webpool_svc
+MIM CM Agent;mimcm_agent_svc
+MIM CM Enrollment agent;mimcm_enroll_svc
+MIM CM KRA agent;mimcm_kra_svc
+MIM CM AuthZ agent;mimcm_authz_svc
+MIM CM CA Mgr;mimcm_camgr_svc
+MIM CM Service;mimcm_svc
+CertManagement svc;certmgr_svc
+CertManagement CA Manager Account;certmgr_camgr
+CertManagement web svc;certmgr_web_svc

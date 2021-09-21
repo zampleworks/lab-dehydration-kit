@@ -1,0 +1,11 @@
+﻿
+For root domain: Reset the pwd for the trust
+Note: The trust password (password) is required for resetting the trust from the child domain after restoring the child domain! (s. step 16)
+
+netdom trust dom.sandvik.com /domain:win.dom.sandvik.com /resetOneSide /passwordT:password
+
+
+For child domain: Reset the pwd for the trust
+
+netdom trust win.dom.sandvik.com /domain:dom.sandvik.com /resetOneSide /passwordT:password
+

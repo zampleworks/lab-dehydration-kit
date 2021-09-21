@@ -1,0 +1,42 @@
+Name;Type;Scope
+Role Employee;Role;
+Role Tier 0 Admin;AdminRole;Universal
+Role Tier 1 Admin;AdminRole;Universal
+Role Tier 2 Admin;AdminRole;Universal
+Role Tier 3 Admin;AdminRole;Universal
+Role Server Admin;AdminRole;Universal
+Role AD Admin;DSRole;Global
+Role IDM Admin;DSRole;Universal
+Role PKI Admin;DSRole;Universal
+Role SharePoint Admin;AdminRole;
+Role ServiceAccount;AdminRole;
+Role ServiceAccount InteractiveLogon;AdminRole;
+Role SAP Admin;AdminRole;
+Role DB Admin;AdminRole;
+Role Network Admin;AdminRole;
+Role Web Admin;AdminRole;
+Role OnSite Admin;AdminRole;
+Role Helpdesk Admin;AdminRole;
+Role IT-Infra Tier 0 Owner;Role;
+Role IT-Infra Tier 1 Owner;Role;
+Role IT-Infra Tier 2 Owner;Role;
+Role IT-Infra Tier 3 Owner;Role;
+Role IT-Sec Officer;Role;
+Role InfoSec Officer;Role;
+Role IT-Infra DB Service Owner;Role;
+Role IT-Infra Web Service Owner;Role;
+Role IT-Infra IDM Service Owner;Role;
+Role IT-Infra AD Service Owner;Role;
+Role IT-Service SharePoint Service Owner;Role;
+Role IT-Service SAP Service Owner;Role;
+Computer Windows Clients;ClientGroup;
+Computer Windows Servers;ServerGroup;
+Pm Server LocalAdmin;Permission;
+Pm Server InteractiveLogon;Permission;
+Pm AD JoinComputer;DSPermission;
+Pm AD Employees PwReset;DSPermission;
+Pm AD Employees ManageUser;DSPermission;
+Pm AD Admins PwReset;DSPermission;
+Pm AD Admins ManageUser;DSPermission;
+Pm AD ServiceAccounts PwReset;DSPermission;
+Pm AD ServiceAccounts ManageUser;DSPermission;

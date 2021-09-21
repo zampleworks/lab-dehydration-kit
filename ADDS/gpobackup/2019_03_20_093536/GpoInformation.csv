@@ -1,0 +1,4 @@
+"Default Domain Policy","{31b2f340-016d-11d2-945f-00c04fb984f9}","DC=ad001,DC=zwks,DC=xyz:False:True:1:False",
+"Servers GPO","{3e34688f-7c73-43bd-ab28-03f1b00b3a54}","OU=Servers,OU=Computers,OU=AD001,DC=ad001,DC=zwks,DC=xyz:False:True:1:False",
+"Default Domain Controllers Policy","{6ac1786c-016f-11d2-945f-00c04fb984f9}","OU=Domain Controllers,DC=ad001,DC=zwks,DC=xyz:False:True:1:False",
+"Clients GPO","{f32d36dc-f896-4da7-8b57-9c78c4b55415}","OU=Clients,OU=Computers,OU=AD001,DC=ad001,DC=zwks,DC=xyz:False:True:1:False",
