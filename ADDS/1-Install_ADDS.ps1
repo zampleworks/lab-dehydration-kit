@@ -1,4 +1,3 @@
-
 $Pw = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
 
 Install-WindowsFeature AD-Domain-Services -IncludeAllSubFeature -IncludeManagementTools

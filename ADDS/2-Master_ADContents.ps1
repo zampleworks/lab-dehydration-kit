@@ -1,7 +1,6 @@
-﻿
-Set-Location $PSScriptRoot
+﻿Set-Location $PSScriptRoot
 
-Import-Module ActiveDirectory
+Import-Module ActiveDirectory, GroupPolicy
 
 .\Reset-BuiltinDelegation.ps1
 
@@ -9,19 +8,13 @@ Import-Module ActiveDirectory
 
 .\Create-Delegation.ps1
 
-$GpoDir = Get-ChildItem .\gpobackup | Select -First 1
-$MigTbl = Get-ChildItem $GpoDir.FullName -Filter "*.migtable"
-
+$GpoDir = Get-ChildItem .\gpobackup | Select-Object -First 1
 .\Import_GPOs.ps1 -domain zwks.xyz -backupFolder $GpoDir.FullName -MigTable
 
-$GpoDetails = [Xml] (Get-Content (Get-ChildItem $GpoDir.FullName Gpodetails.xml).FullName)
+$ClientsGPO = Get-GPO -Name "Clients GPO"
+$ClientsOU = Get-ADOrganizationalUnit -SearchBase (Get-ADDomain).DistinguishedName -SearchScope Subtree -Filter { Name -eq "Clients" }
+New-GPLink -Guid $ClientsGPO.Id -Target $ClientsOU.DistinguishedName -LinkEnabled Yes | Out-Null
 
-$Gpos = Import-Csv "$($GpoDir.FullName)\GpoInformation.csv" -Header "Name","Guid","LinkPath"
-$GpoDetails.Objs.Obj | % {
-    $Guid = "{$($_.MS.G.InnerText)}"
-    $Path = "$($GpoDir.FullName)\$($Guid)"
-    $Name = $_.MS.S[0].InnerText
-    #Write-Host "Bid: $Guid $Name $Path"
-    Import-GPO -CreateIfNeeded -Path $Path -MigrationTable $MigTbl -BackupId $Guid -TargetName $Name
-}
-
+$ServersGPO = Get-GPO -Name "Servers GPO"
+$ServersOU = Get-ADOrganizationalUnit -SearchBase (Get-ADDomain).DistinguishedName -SearchScope Subtree -Filter { Name -eq "Servers" }
+New-GPLink -Guid $ServersGPO.Id -Target $ServersOU.DistinguishedName -LinkEnabled Yes | Out-Null

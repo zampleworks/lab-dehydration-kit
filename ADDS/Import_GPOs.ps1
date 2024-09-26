@@ -90,7 +90,7 @@
 ## Script Options and Parameters
 #################################
 
-#Requires -version 3
+#Requires -Version 3
 #Requires -modules ActiveDirectory,GroupPolicy
 
 #Version: 2.0
@@ -172,8 +172,16 @@ Param(
       [ValidateRange(1,3)]
       [Single]$Severity
       )
-#Create the line to be logged$LogLine =  "<![LOG[$Value]LOG]!>" +`            "<time=`"$(Get-Date -Format HH:mm:ss).000+0`" " +`            "date=`"$(Get-Date -Format M-d-yyyy)`" " +`            "component=`"$Component`" " +` 
-            "context=`"`" " +`            "type=`"$Severity`" " +`            "thread=`"1`" " +`            "file=`"`">"
+
+#Create the line to be logged
+$LogLine =  "<![LOG[$Value]LOG]!>" +`
+            "<time=`"$(Get-Date -Format HH:mm:ss).000+0`" " +`
+            "date=`"$(Get-Date -Format M-d-yyyy)`" " +`
+            "component=`"$Component`" " +` 
+            "context=`"`" " +`
+            "type=`"$Severity`" " +`
+            "thread=`"1`" " +`
+            "file=`"`">"
 
 #Write the line to the passed log file
 Add-Content -Path $NewReport -Value $LogLine
@@ -190,7 +198,13 @@ Add-Content -Path $NewReport -Value $LogLine
 #Create a variable to represent a new script log, constructing the report name from date details
 $SourceParent = (Get-Location).Path
 $Date = Get-Date
-$NewReport = "$SourceParent\" + `             "$($Date.Year)" + `             "$("{0:D2}" -f $Date.Month)" + `             "$("{0:D2}" -f $Date.Day)" + `             "$("{0:D2}" -f $Date.Hour)" + `             "$("{0:D2}" -f $Date.Minute)" + `             "$("{0:D2}" -f $Date.Second)" + `
+$NewReport = "$SourceParent\" + `
+             "$($Date.Year)" + `
+             "$("{0:D2}" -f $Date.Month)" + `
+             "$("{0:D2}" -f $Date.Day)" + `
+             "$("{0:D2}" -f $Date.Hour)" + `
+             "$("{0:D2}" -f $Date.Minute)" + `
+             "$("{0:D2}" -f $Date.Second)" + `
              "_GPO_Import.log"
 
 
@@ -230,7 +244,7 @@ If (New-Item -ItemType File -Path $NewReport) {
     $CustomGpoInfo = Import-Clixml -Path $CustomGpoXML
 
     #Obtain the source domain DN from the first custom GPO object
-    $SourceDomainDN = ($CustomGpoInfo | Select -First 1).DomainDN
+    $SourceDomainDN = ($CustomGpoInfo | Select-Object -First 1).DomainDN
 
 
 
@@ -269,7 +283,7 @@ If (New-Item -ItemType File -Path $NewReport) {
                 ForEach ($WMI in $WmiFilters) {
 
                     #Replace the domain DN with the target filter DN
-                    $TargetWmiDN = $WMI.DistinguishedName –Replace $SourceDomainDN, $TargetDomainDN
+                    $TargetWmiDN = $WMI.DistinguishedName -Replace $SourceDomainDN, $TargetDomainDN
 
 
                     #Ensure that the msWMI-Parm1 property (the WMI Filter Description in the GUI) is populated
@@ -355,7 +369,11 @@ If (New-Item -ItemType File -Path $NewReport) {
 
 
                         #Create the AD object
-                        $NewWmiFilter = New-ADObject -Name $WMI."msWMI-ID" -Type $WMI.ObjectClass `                                                     -Path "CN=SOM,CN=WMIPolicy,CN=System,$TargetDomainDN" `                                                     -OtherAttributes $Properties `                                                     -Server $TargetPDC `                                                     -ErrorAction SilentlyContinue
+                        $NewWmiFilter = New-ADObject -Name $WMI."msWMI-ID" -Type $WMI.ObjectClass `
+                                                     -Path "CN=SOM,CN=WMIPolicy,CN=System,$TargetDomainDN" `
+                                                     -OtherAttributes $Properties `
+                                                     -Server $TargetPDC `
+                                                     -ErrorAction SilentlyContinue
 
                             #Check the success of the New-ADObject cmdlet
                             If ($?) {
@@ -431,8 +449,11 @@ If (New-Item -ItemType File -Path $NewReport) {
 
 
                     #Import all the GPOs referenced in the backup folder with a migration table
-                    $ImportedGpo = Import-GPO -BackupId $CustomGpo.BackupGuid `                                              -Path $BackupFolder `
-                                              -CreateIfNeeded `                                              -Domain $TargetDomainFQDN `                                              -TargetName $CustomGpo.Name `
+                    $ImportedGpo = Import-GPO -BackupId $CustomGpo.BackupGuid `
+                                              -Path $BackupFolder `
+                                              -CreateIfNeeded `
+                                              -Domain $TargetDomainFQDN `
+                                              -TargetName $CustomGpo.Name `
                                               -MigrationTable $MigrationFile `
                                               -Server $TargetPDC `
                                               -ErrorAction SilentlyContinue
@@ -473,8 +494,11 @@ If (New-Item -ItemType File -Path $NewReport) {
             Else {
 
                 #Import all the GPOs referenced in the backup folder
-                $ImportedGpo = Import-GPO -BackupId $CustomGpo.BackupGuid `                                          -Path $BackupFolder `
-                                          -CreateIfNeeded `                                          -Domain $TargetDomainFQDN `                                          -TargetName $CustomGpo.Name `
+                $ImportedGpo = Import-GPO -BackupId $CustomGpo.BackupGuid `
+                                          -Path $BackupFolder `
+                                          -CreateIfNeeded `
+                                          -Domain $TargetDomainFQDN `
+                                          -TargetName $CustomGpo.Name `
                                           -Server $TargetPDC `
                                           -ErrorAction SilentlyContinue
 
@@ -592,11 +616,11 @@ If (New-Item -ItemType File -Path $NewReport) {
                     ForEach ($SOM in $SOMs) {
 
                         #Get the DN part from the SOM entry
-                        $SomDN = ($SOM –Split ":")[0] 
+                        $SomDN = ($SOM -Split ":")[0] 
 
 
                         #Replace the domain DNs
-                        $SomDN = $SomDN –Replace $SourceDomainDN, $TargetDomainDN
+                        $SomDN = $SomDN -Replace $SourceDomainDN, $TargetDomainDN
 
                         
                         #Log SOM DN update
@@ -697,7 +721,7 @@ If (New-Item -ItemType File -Path $NewReport) {
 
 
                         #Replace the domain DNs
-                        $SomDN = $SomDN –Replace $SourceDomainDN, $TargetDomainDN
+                        $SomDN = $SomDN -Replace $SourceDomainDN, $TargetDomainDN
 
 
                         #Check the SOM target exists
@@ -752,7 +776,12 @@ If (New-Item -ItemType File -Path $NewReport) {
 
 
                             #The SOM link has already been created, so now set the 'enabled', 'order' and 'enforced' properties
-                            $SomLink = Set-GPLink -Guid $CustomGpo.NewGpoGuid `                                                  -Domain $TargetDomainFQDN `                                                  -Target $SomDN `                                                  -LinkEnabled $LinkEnabled `                                                  -Order $LinkOrder `                                                  -Enforced $LinkEnforced `
+                            $SomLink = Set-GPLink -Guid $CustomGpo.NewGpoGuid `
+                                                  -Domain $TargetDomainFQDN `
+                                                  -Target $SomDN `
+                                                  -LinkEnabled $LinkEnabled `
+                                                  -Order $LinkOrder `
+                                                  -Enforced $LinkEnforced `
                                                   -Server $TargetPDC `
                                                   -ErrorAction SilentlyContinue
 

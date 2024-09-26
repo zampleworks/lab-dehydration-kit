@@ -6,7 +6,7 @@ Import-Module ActiveDirectory
 
 . .\Delegation-Functions.ps1
 
-$SchemaRef = Get-adobject -filter { name -eq "Enterprise Schema" } -searchbase (get-adforest | select -expand partitionscontainer) -properties ncname
+$SchemaRef = Get-adobject -filter { name -eq "Enterprise Schema" } -searchbase (get-adforest | Select-Object -expand partitionscontainer) -properties ncname
 $SchemaDn = $SchemaRef.nCName
 
 $BuiltinIdentities = @{
@@ -14,14 +14,16 @@ $BuiltinIdentities = @{
     "BO" = "BUILTIN\Backup Operators"
     "PO" = "BUILTIN\Print Operators"
     "SO" = "BUILTIN\Server Operators"
+    "RU" = "BUILTIN\Pre-Windows 2000 Compatible Access"
 }
 
 # Remove unwanted ACEs (print operators, account operators etc) from schema classes default Security Descriptor 
-Get-ADObject -filter { objectClass -eq "classSchema" } -SearchBase $SchemaDN -Properties defaultSecurityDescriptor,ldapDisplayName | % {
+$Objs = Get-ADObject -filter { objectClass -eq "classSchema" } -SearchBase $SchemaDN -Properties defaultSecurityDescriptor,ldapDisplayName
+$Objs | ForEach-Object {
     $o1 = $_
     If($o1.defaultSecurityDescriptor -ne $Null -And (-Not [string]::IsNullOrWhiteSpace($o1.defaultSecurityDescriptor))) {
-        $newSddl = Remove-BuiltinFromSDDLACE -RemoveIdentities $BuiltinIdentities -SddlAce $o1.defaultSecurityDescriptor
-        If($newSddl -ne $_.defaultSecurityDescriptor) {
+        $newSddl = Remove-IdsFromSDDLACE -RemoveIdentities $BuiltinIdentities -SddlAce $o1.defaultSecurityDescriptor
+        If($newSddl -ne $o1.defaultSecurityDescriptor) {
             Set-ADObject $o1 -Replace @{ 'defaultSecurityDescriptor' = $newSddl}
             Write-Host "Updated default security on class [$($o1.LdapDisplayName)]"
         }
@@ -31,7 +33,8 @@ Get-ADObject -filter { objectClass -eq "classSchema" } -SearchBase $SchemaDN -Pr
 # Remove unwanted ACEs (print operators, account operators etc) from domain partition objects
 $Ids = $BuiltinIdentities.Values
 
-Get-ADObject -filter * -SearchBase $Domain.DistinguishedName -SearchScope Subtree | % {
+$Objs = Get-ADObject -filter * -SearchBase $Domain.DistinguishedName -SearchScope Subtree 
+$Objs | ForEach-Object {
     $o1 = $_
     
     $p = "AD:\$($o1.DistinguishedName)"
@@ -39,18 +42,19 @@ Get-ADObject -filter * -SearchBase $Domain.DistinguishedName -SearchScope Subtre
     $Updated = $False
     Foreach($Ace in $Acl.Access) {
         If(-Not $Ace.IsInherited) {
-            #Write-host "$($Ace.IdentityReference.value)"
             If($Ids -contains $Ace.IdentityReference.Value) {
-                Write-Verbose "Found explicit ACE on $($o1.Name) with id: [$($Ace.IdentityReference.Value)]"
+                Write-Host "Removing ACE on $($o1.DistinguishedName) for: [$($Ace.IdentityReference.Value)]"
                 $Acl.RemoveAccessRule($Ace) | Out-Null
                 $Updated = $True
             }
         }
     }
-    Try {
-        Set-Acl $p -AclObject $Acl
-    } catch {
-        Write-Host "Failed to modify ACL on $($o1.DistinguishedName): "
-        Write-Host $_.Exception.Message
+    If($Updated) {
+        Try {
+            Set-Acl $p -AclObject $Acl
+        } catch {
+            Write-Host "Failed to modify ACL on $($o1.DistinguishedName): "
+            Write-Host $_.Exception.Message
+        }
     }
 }

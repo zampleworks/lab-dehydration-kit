@@ -554,7 +554,7 @@ Function Set-FullControlDelegation {
     Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights GenericAll -InheritanceType $Inh
 }
 
-Function Remove-BuiltinFromSDDLACE {
+Function Remove-IdsFromSDDLACE {
     Param(
         [Hashtable]
         $RemoveIdentities,
@@ -564,7 +564,7 @@ Function Remove-BuiltinFromSDDLACE {
     )
 
     If([string]::IsNullOrWhiteSpace($SddlAce)) {
-        Write-Verbose "Empty input string"
+        Write-Host "Empty input string" -ForegroundColor Red
         return
     }
 
@@ -573,7 +573,7 @@ Function Remove-BuiltinFromSDDLACE {
     $Sddl = $SddlAce
     If($FirstPar -gt 0) {
         $Pre = $SddlAce.Substring(0, $FirstPar)
-        $Sddl = $SddlAce.Substring($FirstPar)
+        $Sddl = $SddlAce.Substring($FirstPar + 1, $SddlAce.Length - $FirstPar - 2)
     }
 
     $tokens = $Sddl.Split(")(", [StringSplitOptions]::RemoveEmptyEntries)
@@ -585,7 +585,7 @@ Function Remove-BuiltinFromSDDLACE {
         Foreach($Key in $RemoveIdentities.Keys) { 
             If($t.endsWith(";$Key")) {
                 $Remove = $True
-                Write-Verbose "Removing [$($RemoveIdentities[$Key])] ACE"
+                Write-Host "Removing [$($RemoveIdentities[$Key])] ACE"
                 Break
             }
         }
