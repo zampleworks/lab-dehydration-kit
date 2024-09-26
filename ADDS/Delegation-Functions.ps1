@@ -568,37 +568,67 @@ Function Remove-IdsFromSDDLACE {
         return
     }
 
-    $Pre = ""
-    $FirstPar = $SddlAce.IndexOf("(")
-    $Sddl = $SddlAce
-    If($FirstPar -gt 0) {
-        $Pre = $SddlAce.Substring(0, $FirstPar)
-        $Sddl = $SddlAce.Substring($FirstPar + 1, $SddlAce.Length - $FirstPar - 2)
-    }
+    $Sections = [string[]] @()
+    $SectionStartIdx = 0
+    $SectionEndIdx = 0
+    do {
+        If($SectionEndIdx -gt 0) {
+            $SectionStartIdx = $SectionEndIdx + 1
+        } Else {
+            $SectionStartIdx = $SddlAce.IndexOf(":") - 1
+        }
+        
+        $SectionEndIdx = $SddlAce.IndexOf(":", $SectionStartIdx + 2) - 2
+        If($SectionEndIdx -lt 0) {
+            $Sections += ,($SddlAce.Substring($SectionStartIdx))
+        } Else {
+            $Sections += ,($SddlAce.Substring($SectionStartIdx, $SectionEndIdx - $SectionStartIdx + 1))
+        }
+        
+    } While($SectionEndIdx -gt 0)
 
-    $tokens = $Sddl.Split(")(", [StringSplitOptions]::RemoveEmptyEntries)
     $Result = ""
-    $Altered = $False
-    Foreach($t in $Tokens) {
-        $Remove = $False
+    $Updated = $False
+    Foreach($Section in $Sections) {
+        $Pre = ""
+        $FirstPar = $Section.IndexOf("(")
+        $Sddl = $Section
+        If($FirstPar -gt 0) {
+            $Pre = $Section.Substring(0, $FirstPar)
+            $Sddl = $Section.Substring($FirstPar + 1, $Section.Length - $FirstPar - 2)
+        }
 
-        Foreach($Key in $RemoveIdentities.Keys) { 
-            If($t.endsWith(";$Key")) {
-                $Remove = $True
-                Write-Host "Removing [$($RemoveIdentities[$Key])] ACE"
-                Break
+        $tokens = $Sddl.Split(")(", [StringSplitOptions]::RemoveEmptyEntries)
+        $SectionResult = ""
+        $SectionAltered = $False
+        Foreach($t in $Tokens) {
+            $Remove = $False
+
+            Foreach($Key in $RemoveIdentities.Keys) { 
+                If($t.endsWith(";$Key")) {
+                    $Remove = $True
+                    Write-Host "Removing [$($RemoveIdentities[$Key])] ACE"
+                    Break
+                }
+            }
+
+            If(-Not $Remove) {
+                $SectionResult = "$SectionResult($t)"
+            } Else {
+                $SectionAltered = $True
             }
         }
 
-        If(-Not $Remove) {
-            $Result = "$Result($t)"
+        If($SectionAltered) {
+            $SectionResult = "$Pre$SectionResult"
+            $Result = "$Result$SectionResult"
+            $Updated = $True
         } Else {
-            $Altered = $True
+            $Result = "$Result$Section"
         }
     }
 
-    If($Altered) {
-        $Result = "$Pre$Result"
+    If($Updated) {
         Write-Output $Result
     } Else {
         Write-Output $SddlAce
