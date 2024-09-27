@@ -6,11 +6,11 @@ Set-Location $PSScriptRoot
 Function Log {
     Param(
         [string] $Msg,
-        [switch] $Error,
+        [switch] $Err,
         [switch] $Warning
     )
 
-    If($Error) {
+    If($Err) {
         Write-Host "$Msg" -ForegroundColor Red
     } Elseif($Warning) {
         Write-Host "$Msg" -ForegroundColor Yellow
@@ -26,23 +26,21 @@ Function LogE {
 
     $Ex = $E
     
-    Log "Exception caught" -Error
+    Log "Exception caught" -Err
     Do {
-        Log "Error code: $($Ex.Exception.HResult): " -Error
+        Log "Error code: $($Ex.Exception.HResult): " -Err
         Log "$($Ex.Exception.Message)" -Warning
         Log "$($Ex.Exception.StackTrace)`n" -Warning
         $Ex = $Ex.InnerException
-    } While ($Ex -ne $Null)
+    } While ($Null -ne $Ex)
 }
 
 $RootDSE = Get-ADRootDSE
-$Forest = Get-ADForest
-$Domain = Get-ADDomain
 
 $GuidNames = @{}
 
 $Guidmap = @{}
-Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidguid=*)' -Properties ldapdisplayname,schemaidguid | % { 
+Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidguid=*)' -Properties ldapdisplayname,schemaidguid | ForEach-Object { 
     $g = [guid] $_.SchemaIdGuid
     $n = $_.LdapDisplayName
 
@@ -51,7 +49,7 @@ Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidg
 }
 
 $ExtendedRights = @{}
-Get-ADObject -SearchBase "CN=Extended-Rights,$($RootDSE.configurationNamingContext)" -LDAPFilter "(objectClass=controlAccessRight)" -Properties cn,appliesTo,rightsGuid | % {
+Get-ADObject -SearchBase "CN=Extended-Rights,$($RootDSE.configurationNamingContext)" -LDAPFilter "(objectClass=controlAccessRight)" -Properties cn,appliesTo,rightsGuid | ForEach-Object {
     $r = New-Object PSObject
     $r | Add-Member -MemberType NoteProperty -Name "Name" -Value $_.cn
     $r | Add-Member -MemberType NoteProperty -Name "AppliesTo" -Value $_.appliesTo
