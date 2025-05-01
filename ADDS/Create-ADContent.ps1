@@ -27,7 +27,7 @@ $StringReplacements = @{
 
 <#
  # Convert characters with diacritic marks to ascii equivalent
- # For example, Ö will be O and é will be e
+ # For example, Ã– will be O and Ã© will be e
 #>
 function Convert-DiacriticCharacters {
     param(
@@ -259,9 +259,9 @@ Foreach($Emp in $Employees) {
             $Dept = $Departments | ? { $_.DepartmentID -eq $Employment.DepartmentID }
         }
 
-        $Fn = $Person.FirstName
-        $Sn = $Person.LastName
-        $In = $Person.Initial
+        $Fn = $($Person.FirstName).Trim()
+        $Sn = $($Person.LastName).Trim()
+        $In = $($Person.Initial).Trim()
         $DeptName = $Dept.Name
         $DispN = "$Fn"
         $JobTitle = $Emp.Position
@@ -274,6 +274,7 @@ Foreach($Emp in $Employees) {
 
         $Sam = "$TestPrefix$($Emp.UserNBAccount.Substring($Emp.UserNBAccount.IndexOf("\") + 1))"
         $Upn = Convert-DiacriticCharacters "$Fn.$Sn@$DomainDNSName"
+        $Upn = $Upn.Replace(" ", "").Replace("'", "");
 
         $ExistingUser = $Null
         Try {
@@ -399,4 +400,3 @@ Foreach($Role in $UserRoles) {
         }
     }
 }
-

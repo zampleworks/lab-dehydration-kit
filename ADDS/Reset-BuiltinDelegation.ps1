@@ -6,8 +6,8 @@ Import-Module ActiveDirectory
 
 . .\Delegation-Functions.ps1
 
-$SchemaRef = Get-adobject -filter { name -eq "Enterprise Schema" } -searchbase (get-adforest | Select-Object -expand partitionscontainer) -properties ncname
-$SchemaDn = $SchemaRef.nCName
+$SchemaDn = (Get-ADRootDSE).schemaNamingContext
+$Domain = Get-ADDomain
 
 $BuiltinIdentities = @{
     "AO" = "BUILTIN\Account Operators"
@@ -24,8 +24,12 @@ $Objs | ForEach-Object {
     If($o1.defaultSecurityDescriptor -ne $Null -And (-Not [string]::IsNullOrWhiteSpace($o1.defaultSecurityDescriptor))) {
         $newSddl = Remove-IdsFromSDDLACE -RemoveIdentities $BuiltinIdentities -SddlAce $o1.defaultSecurityDescriptor
         If($newSddl -ne $o1.defaultSecurityDescriptor) {
-            Set-ADObject $o1 -Replace @{ 'defaultSecurityDescriptor' = $newSddl}
-            Write-Host "Updated default security on class [$($o1.LdapDisplayName)]"
+            Try {
+                Set-ADObject $o1 -Replace @{ 'defaultSecurityDescriptor' = $newSddl}
+                Write-Host "Updated default security descriptor on class [$($o1.LdapDisplayName)]"
+            } Catch {
+                Write-Warning "Couldn't update default security descriptor on class [$($o1.LdapDisplayName)]"
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿Set-Location $PSScriptRoot
 
+Set-ExecutionPolicy RemoteSigned -Force
+
 Import-Module ActiveDirectory, GroupPolicy
 
 .\Reset-BuiltinDelegation.ps1
