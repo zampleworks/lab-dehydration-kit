@@ -283,7 +283,7 @@ Foreach($Emp in $Employees) {
             Write-Verbose "User already exists: [$Sam]  [$JobTitle]"
         } Catch {}
 
-        If($ExistingUser -eq $Null) {
+        If($Null -eq $ExistingUser) {
             Try {
                 $u = New-ADUser -name $DispN -displayname $DispN -GivenName $Fn -Surname $Sn -Samaccountname $Sam -userprincipalname $Upn -EmployeeNumber $Bid -Department $DeptName `
                      -Title $JobTitle -path $EmployeesOu -Enabled $false -Confirm:$False -AccountPassword $Pw -PassThru

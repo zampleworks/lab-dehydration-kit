@@ -10,8 +10,15 @@ Import-Module ActiveDirectory, GroupPolicy
 
 .\Create-Delegation.ps1
 
+$Domain = Get-ADDomain
+
 $GpoDir = Get-ChildItem .\gpobackup | Select-Object -First 1
-.\Import_GPOs.ps1 -domain zwks.xyz -backupFolder $GpoDir.FullName -MigTable
+$MigTablePath = "$($GpoDir.FullName)\MigrationTable.migtable"
+$MigTableContent = Get-Content $MigTablePath
+$MigTableContent = $MigTableContent.Replace("@zwks.xyz", "@$($Domain.DNSRoot)")
+$MigTableContent | Out-File $MigTablePath -Force
+
+.\Import_GPOs.ps1 -domain $Domain.DNSRoot -backupFolder $GpoDir.FullName -MigTable
 
 $ClientsGPO = Get-GPO -Name "Clients GPO"
 $ClientsOU = Get-ADOrganizationalUnit -SearchBase (Get-ADDomain).DistinguishedName -SearchScope Subtree -Filter { Name -eq "Clients" }

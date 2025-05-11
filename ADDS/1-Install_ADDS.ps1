@@ -54,7 +54,7 @@ If(-Not (Test-Path $AddsAdminFilesPath)) {
 }
 
 $AddsDeploymentModule = Get-Module addsdeployment -ListAvailable
-If($Null -ne $AddsDeploymentModule) {
+If($Null -eq $AddsDeploymentModule) {
     
     $AnswerFilePath = "$AddsAdminFilesPath\$DomainName.dcpromo.txt"
 
