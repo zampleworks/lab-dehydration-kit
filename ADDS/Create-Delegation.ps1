@@ -5,7 +5,15 @@ Set-Location $PSScriptRoot
 
 . .\Delegation-Functions.ps1
 
-$Delegations = Import-csv .\Objects\Delegations.csv -Delimiter ";"
+If($Null -eq $LocalObjectsPath) {
+    $LocalObjectsPath = Get-Item .\Objects | Select-Object -ExpandProperty FullName
+}
+
+If(-Not (Test-Path "$LocalObjectsPath\OU.csv" -PathType Leaf)) {
+    Throw "File OU.csv is missing from $LocalObjectsPath"
+}
+
+$Delegations = Import-csv "$LocalObjectsPath\Delegations.csv" -Delimiter ";"
 
 $VerbosePreference = "continue"
     
@@ -15,10 +23,10 @@ Foreach($Dlg in $Delegations) {
     Write-Verbose "Setting [$Dg] for [$($Dlg.RoleName)] in [$($Dlg.OuName)]"
 
     $Role = Get-ADGroup $Dlg.RoleName 
-    $Ou = Import-csv .\Objects\OUStructure.csv -Delimiter ";" | ? { $_.Name -eq $Dlg.OuName } | select -ExpandProperty DN
+    $Ou = Import-csv "$LocalObjectsPath\OUStructure.csv" -Delimiter ";" | Where-Object { $_.Name -eq $Dlg.OuName } | Select-Object -ExpandProperty DN
     
     Try {
-        $AdOu = Get-ADOrganizationalUnit $Ou
+        Get-ADOrganizationalUnit $Ou | Out-Null
 
         $VerbosePreference = "SilentlyContinue"
         
@@ -29,6 +37,8 @@ Foreach($Dlg in $Delegations) {
         } Elseif($Dlg.Delegation -eq "ManageComputers") {
             Set-ManageComputersDelegation -ObjectDN $Ou -SubjectDN $Role.DistinguishedName -Inherit
         } Elseif($Dlg.Delegation -eq "ManageGroups") {
+            Set-ManageGroupsDelegation -ObjectDN $Ou -SubjectDN $Role.DistinguishedName -Inherit
+        } Elseif($Dlg.Delegation -eq "ResetPwd") {
             Set-ManageGroupsDelegation -ObjectDN $Ou -SubjectDN $Role.DistinguishedName -Inherit
         }
         

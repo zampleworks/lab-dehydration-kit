@@ -1,0 +1,158 @@
+Member;MemberOf
+stephanie0;Role Org IT-Infra DB Service Owner,Role Org IT-Infra Web Service Owner,Role Org IT-Infra IDM Service Owner,Role Org IT-Infra AD Service Owner
+zainal0;Role Org IT-Service SharePoint Service Owner,Role Org IT-Service SAP Service Owner
+sairaj0;Role Org InfoSec Officer
+jean0;Role Org IT-Infra T0 Owner,Role Org IT-Infra T1 Owner,Role Org IT-Infra T2 Owner,Role Org IT-Infra T3 Owner
+ken0;Role Org InfoSec Officer
+at0_anders;Claim T0 Admin,Role T0 AD Admin,Role T0 IDM Admin,Role T0 PKI Admin,Domain Admins
+at0_ashvini0;Claim T0 Admin,Role T0 IDM Admin
+at0_dan0;Claim T0 Admin,Role T0 Monitoring Admin
+at0_dan1;Claim T0 Admin,Role T0 DB Admin
+at0_francois0;Claim T0 Admin,Role T0 EDR Admin
+at0_janaina0;Claim T0 Admin,Role T0 IDM Admin
+at0_jean0;Claim T0 Admin,Role T0 PKI Admin
+at0_karen1;Claim T0 Admin,Role T0 Monitoring Admin
+at0_peter1;Claim T0 Admin,Role T0 EDR Admin
+at0_ramesh0;Claim T0 Admin,Role T0 DB Admin
+at0_stephanie0;Claim T0 Admin,Role T0 DB Admin
+at1_anders;Claim T1 Admin,Role T1 DB Admin
+at1_betsy0;Claim T1 Admin,Role T1 EDR Admin
+at1_dan0;Claim T1 Admin,Role T1 Monitoring Admin
+at1_dan1;Claim T1 Admin,Role T0 DB Admin
+at1_ebru0;Claim T1 Admin,Role T1 SAP Admin
+at1_francois0;Claim T1 Admin,Role T1 EDR Admin
+at1_hung-fu0;Claim T1 Admin,Role T1 SAP Admin
+at1_john4;Claim T1 Admin,Role T1 SharePoint Admin
+at1_kevin2;Claim T1 Admin,Role T1 SharePoint Admin
+at1_mary1;Claim T1 Admin,Role T1 DB Admin
+at1_prasanna0;Claim T1 Admin,Role T1 DB Admin
+at1_samantha0;Claim T1 Admin,Role T1 DB Admin
+at1_zheng0;Claim T1 Admin,Role T1 EDR Admin
+t0_anders;Claim T0 User,Role T0 AD User,Role T0 IDM User,Role T0 PKI User
+t0_ashvini0;Claim T0 User,Role T0 IDM Admin
+t0_dan0;Claim T0 User,Role T0 Monitoring Admin
+t0_dan1;Claim T0 User,Role T0 DB Admin
+t0_francois0;Claim T0 User,Role T0 EDR Admin
+t0_janaina0;Claim T0 User,Role T0 IDM Admin
+t0_jean0;Claim T0 User,Role T0 PKI Admin
+t0_karen1;Claim T0 User,Role T0 Monitoring Admin
+t0_peter1;Claim T0 User,Role T0 EDR Admin
+t0_ramesh0;Claim T0 User,Role T0 DB Admin
+t0_stephanie0;Claim T0 User,Role T0 DB Admin
+t1_anders;Claim T1 User,Role T1 DB Admin
+t1_betsy0;Claim T1 User,Role T1 EDR Admin
+t1_dan0;Claim T1 User,Role T1 Monitoring Admin
+t1_dan1;Claim T1 User,Role T0 DB Admin
+t1_ebru0;Claim T1 User,Role T1 SAP Admin
+t1_francois0;Claim T1 User,Role T1 EDR Admin
+t1_hung-fu0;Claim T1 User,Role T1 SAP Admin
+t1_john4;Claim T1 User,Role T1 SharePoint Admin
+t1_kevin2;Claim T1 User,Role T1 SharePoint Admin
+t1_mary1;Claim T1 User,Role T1 DB Admin
+t1_prasanna0;Claim T1 User,Role T1 DB Admin
+t1_samantha0;Claim T1 User,Role T1 DB Admin
+t1_zheng0;Claim T1 User,Role T1 EDR Admin
+sqlissvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
+sqlassvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
+sqlrssvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
+sqlsvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
+sqlagentsvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
+websvc;Claim T1 ServiceAccount,Role T1 Web ServiceAccount
+iamsvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
+iamadcon;Claim T0 ServiceAccount
+iamsqlsvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
+iamsqlassvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
+iamsqlissvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
+iamsqlrssvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
+adfssvc;Claim T0 ServiceAccount,Role T0 AD ServiceAccount
+Role T2 Helpdesk Admin;Pm AD OrgUser Employee PwReset,Pm AD OrgUser Employee Manage,Pm AD OrgClient ManageComputer
+Role T2 OnSite Admin;Pm AD JoinComputer,Pm AD OrgClient LocalAdmin,Pm AD OrgClient ManageComputer
+Pm AD OrgClient LocalAdmin;Pm AD OrgClient InteractiveLogon,Pm AD OrgClient RdpLogon
+Role T0 AD Admin;Administrators,Enterprise Admins,Pm AD T0 User User FullControl,Pm AD T0 User ServiceAccount FullControl,Pm AD T0 User Admin FullControl,Pm AD T0 User User FullControl,Pm AD T0 Group Role FullControl,Pm AD T0 Group Permission FullControl,Pm AD T0 Group Claim FullControl,Pm AD T0 Group AMA FullControl,Pm AD T1 User User FullControl,Pm AD T1 User ServiceAccount FullControl,Pm AD T1 User Admin FullControl,Pm AD T1 User User FullControl,Pm AD T1 Group Role FullControl,Pm AD T1 Group Permission FullControl
+Role T0 AD Admin;Pm AD T0 Server AD SAW LocalAdmin,Pm AD T0 Server AD LocalAdmin
+Role T0 PKI Admin;Pm AD T0 Server PKI SAW LocalAdmin,Pm AD T0 Server PKI LocalAdmin
+Role T0 IDM Admin;Pm AD T0 Server IDM SAW LocalAdmin,Pm AD T0 Server IDM LocalAdmin
+Role T0 DB Admin;Pm AD T0 Server DB SAW LocalAdmin,Pm AD T0 Server DB LocalAdmin
+Role T0 EDR Admin;Pm AD T0 Server EDR SAW LocalAdmin,Pm AD T0 Server EDR LocalAdmin
+Role T0 Monitoring Admin;Pm AD T0 Server Monitoring SAW LocalAdmin,Pm AD T0 Server Monitoring LocalAdmin
+
+Claim T0 User;Pm AD T0 Device PAW LocalAdmin
+Role T0 AD User;Pm AD T0 Server AD SAW InteractiveLogon,Pm AD T0 Server AD SAW RdpLogon
+Role T0 IDM User;Pm AD T0 Server IDM SAW InteractiveLogon,Pm AD T0 Server IDM SAW RdpLogon
+Role T0 PKI User;Pm AD T0 Server PKI SAW InteractiveLogon,Pm AD T0 Server PKI SAW RdpLogon
+Role T0 DB User;Pm AD T0 Server DB SAW InteractiveLogon,Pm AD T0 Server DB SAW RdpLogon
+Role T0 EDR User;Pm AD T0 Server EDR SAW InteractiveLogon,Pm AD T0 Server EDR SAW RdpLogon
+Role T0 Monitoring User;Pm AD T0 Server Monitoring SAW InteractiveLogon,Pm AD T0 Server Monitoring SAW RdpLogon
+
+Role T0 AD ServiceAccount;Pm AD T0 Server AD ServiceLogon
+Role T0 IDM ServiceAccount;Pm AD T0 Server IDM ServiceLogon
+Role T0 PKI ServiceAccount;Pm AD T0 Server PKI ServiceLogon
+Role T0 DB ServiceAccount;Pm AD T0 Server DB ServiceLogon
+Role T0 EDR ServiceAccount;Pm AD T0 Server EDR ServiceLogon
+Role T0 Monitoring ServiceAccount;Pm AD T0 Server Monitoring ServiceLogon
+
+Pm AD T0 Device PAW LocalAdmin;Pm AD T0 Device PAW InteractiveLogon,Pm AD T0 Device PAW RdpLogon
+Pm AD T0 Server AD SAW LocalAdmin;Pm AD T0 Server AD SAW InteractiveLogon,Pm AD T0 Server AD SAW RdpLogon,Pm AD T0 Server AD SAW LapsReadPwd,Pm AD T0 Server AD SAW LapsResetPwd,Pm AD T0 Server AD SAW LapsDecryptPwd
+Pm AD T0 Server AD LocalAdmin;Pm AD T0 Server AD RdpLogon,Pm AD T0 Server AD InteractiveLogon
+Pm AD T0 Server IDM SAW LocalAdmin;Pm AD T0 Server IDM SAW InteractiveLogon,Pm AD T0 Server IDM SAW RdpLogon,Pm AD T0 Server IDM SAW LapsReadPwd,Pm AD T0 Server IDM SAW LapsResetPwd,Pm AD T0 Server IDM SAW LapsDecryptPwd
+Pm AD T0 Server IDM LocalAdmin;Pm AD T0 Server IDM RdpLogon,Pm AD T0 Server IDM InteractiveLogon
+Pm AD T0 Server PKI SAW LocalAdmin;Pm AD T0 Server PKI SAW InteractiveLogon,Pm AD T0 Server PKI SAW RdpLogon,Pm AD T0 Server PKI SAW LapsReadPwd,Pm AD T0 Server PKI SAW LapsResetPwd,Pm AD T0 Server PKI SAW LapsDecryptPwd
+Pm AD T0 Server PKI LocalAdmin;Pm AD T0 Server PKI RdpLogon,Pm AD T0 Server PKI InteractiveLogon
+Pm AD T0 Server DB SAW LocalAdmin;Pm AD T0 Server DB SAW InteractiveLogon,Pm AD T0 Server DB SAW RdpLogon,Pm AD T0 Server DB SAW LapsReadPwd,Pm AD T0 Server DB SAW LapsResetPwd,Pm AD T0 Server DB SAW LapsDecryptPwd
+Pm AD T0 Server DB LocalAdmin;Pm AD T0 Server DB RdpLogon,Pm AD T0 Server DB InteractiveLogon
+Pm AD T0 Server EDR SAW LocalAdmin;Pm AD T0 Server EDR SAW InteractiveLogon,Pm AD T0 Server EDR SAW RdpLogon,Pm AD T0 Server EDR SAW LapsReadPwd,Pm AD T0 Server EDR SAW LapsResetPwd,Pm AD T0 Server EDR SAW LapsDecryptPwd
+Pm AD T0 Server EDR LocalAdmin;Pm AD T0 Server EDR RdpLogon,Pm AD T0 Server EDR InteractiveLogon
+Pm AD T0 Server Monitoring SAW LocalAdmin;Pm AD T0 Server Monitoring SAW InteractiveLogon,Pm AD T0 Server Monitoring SAW RdpLogon,Pm AD T0 Server Monitoring SAW LapsReadPwd,Pm AD T0 Server Monitoring SAW LapsResetPwd,Pm AD T0 Server Monitoring SAW LapsDecryptPwd
+Pm AD T0 Server Monitoring LocalAdmin;Pm AD T0 Server Monitoring RdpLogon,Pm AD T0 Server Monitoring InteractiveLogon
+
+Role T1 DB Admin;Pm AD T1 Server DB SAW LocalAdmin,Pm AD T1 Server DB LocalAdmin
+Role T1 EDR Admin;Pm AD T1 Server EDR SAW LocalAdmin,Pm AD T1 Server EDR LocalAdmin
+Role T1 Monitoring Admin;Pm AD T1 Server Monitoring SAW LocalAdmin,Pm AD T1 Server Monitoring LocalAdmin
+Role T1 Web Admin;Pm AD T1 Server Web SAW LocalAdmin,Pm AD T1 Server Web LocalAdmin
+Role T1 Sharepoint Admin;Pm AD T1 Server Sharepoint SAW LocalAdmin,Pm AD T1 Server Sharepoint LocalAdmin
+Role T1 SAP Admin;Pm AD T1 Server SAP SAW LocalAdmin,Pm AD T1 Server SAP LocalAdmin
+
+Claim T1 User;Pm AD T1 Device PAW LocalAdmin
+Role T1 DB User;Pm AD T1 Server DB SAW InteractiveLogon,Pm AD T1 Server DB SAW RdpLogon
+Role T1 EDR User;Pm AD T1 Server EDR SAW InteractiveLogon,Pm AD T1 Server EDR SAW RdpLogon
+Role T1 Monitoring User;Pm AD T1 Server Monitoring SAW InteractiveLogon,Pm AD T1 Server Monitoring SAW RdpLogon
+Role T1 Web User;Pm AD T1 Server Web SAW InteractiveLogon,Pm AD T1 Server Web SAW RdpLogon
+Role T1 Sharepoint User;Pm AD T1 Server Sharepoint SAW InteractiveLogon,Pm AD T1 Server Sharepoint SAW RdpLogon
+Role T1 SAP User;Pm AD T1 Server SAP SAW InteractiveLogon,Pm AD T1 Server SAP SAW RdpLogon
+
+Role T1 DB ServiceAccount;Pm AD T1 Server DB ServiceLogon
+Role T1 EDR ServiceAccount;Pm AD T1 Server EDR ServiceLogon
+Role T1 Monitoring ServiceAccount;Pm AD T1 Server Monitoring ServiceLogon
+Role T1 Web ServiceAccount;Pm AD T1 Server Web ServiceLogon
+Role T1 Sharepoint ServiceAccount;Pm AD T1 Server Sharepoint ServiceLogon
+Role T1 SAP ServiceAccount;Pm AD T1 Server SAP ServiceLogon
+
+Pm AD T1 Device PAW LocalAdmin;Pm AD T1 Device PAW InteractiveLogon,Pm AD T1 Device PAW RdpLogon
+Pm AD T1 Server DB SAW LocalAdmin;Pm AD T1 Server DB SAW InteractiveLogon,Pm AD T1 Server DB SAW RdpLogon,Pm AD T1 Server DB SAW LapsReadPwd,Pm AD T1 Server DB SAW LapsResetPwd,Pm AD T1 Server DB SAW LapsDecryptPwd
+Pm AD T1 Server DB LocalAdmin;Pm AD T1 Server DB RdpLogon,Pm AD T1 Server DB InteractiveLogon
+Pm AD T1 Server EDR SAW LocalAdmin;Pm AD T1 Server EDR SAW InteractiveLogon,Pm AD T1 Server EDR SAW RdpLogon,Pm AD T1 Server EDR SAW LapsReadPwd,Pm AD T1 Server EDR SAW LapsResetPwd,Pm AD T1 Server EDR SAW LapsDecryptPwd
+Pm AD T1 Server EDR LocalAdmin;Pm AD T1 Server EDR RdpLogon,Pm AD T1 Server EDR InteractiveLogon
+Pm AD T1 Server Monitoring SAW LocalAdmin;Pm AD T1 Server Monitoring SAW InteractiveLogon,Pm AD T1 Server Monitoring SAW RdpLogon,Pm AD T1 Server Monitoring SAW LapsReadPwd,Pm AD T1 Server Monitoring SAW LapsResetPwd,Pm AD T1 Server Monitoring SAW LapsDecryptPwd
+Pm AD T1 Server Monitoring LocalAdmin;Pm AD T1 Server Monitoring RdpLogon,Pm AD T1 Server Monitoring InteractiveLogon
+Pm AD T1 Server Web SAW LocalAdmin;Pm AD T1 Server Web SAW InteractiveLogon,Pm AD T1 Server Web SAW RdpLogon,Pm AD T1 Server Web SAW LapsReadPwd,Pm AD T1 Server Web SAW LapsResetPwd,Pm AD T1 Server Web SAW LapsDecryptPwd
+Pm AD T1 Server Web LocalAdmin;Pm AD T1 Server Web RdpLogon,Pm AD T1 Server Web InteractiveLogon
+Pm AD T1 Server Sharepoint SAW LocalAdmin;Pm AD T1 Server Sharepoint SAW InteractiveLogon,Pm AD T1 Server Sharepoint SAW RdpLogon,Pm AD T1 Server Sharepoint SAW LapsReadPwd,Pm AD T1 Server Sharepoint SAW LapsResetPwd,Pm AD T1 Server Sharepoint SAW LapsDecryptPwd
+Pm AD T1 Server Sharepoint LocalAdmin;Pm AD T1 Server Sharepoint RdpLogon,Pm AD T1 Server Sharepoint InteractiveLogon
+Pm AD T1 Server SAP SAW LocalAdmin;Pm AD T1 Server SAP SAW InteractiveLogon,Pm AD T1 Server SAP SAW RdpLogon,Pm AD T1 Server SAP SAW LapsReadPwd,Pm AD T1 Server SAP SAW LapsResetPwd,Pm AD T1 Server SAP SAW LapsDecryptPwd
+Pm AD T1 Server SAP LocalAdmin;Pm AD T1 Server SAP RdpLogon,Pm AD T1 Server SAP InteractiveLogon
+
+Ama T0 Admin;Claim T0 Admin
+Ama T0 AD Admin;Role T0 AD Admin
+Ama T0 IDM Admin;Role T0 IDM Admin
+Ama T0 PKI Admin;Role T0 PKI Admin
+Ama T0 EDR Admin;Role T0 EDR Admin
+Ama T0 DB Admin;Role T0 DB Admin
+Ama T0 Monitoring Admin;Role T0 Monitoring Admin
+Ama T0 User;Claim T0 User
+Ama T1 Admin;Claim T1 Admin
+Ama T1 EDR Admin;Role T1 EDR Admin
+Ama T1 DB Admin;Role T1 DB Admin
+Ama T1 Monitoring Admin;Role T1 Monitoring Admin
+Ama T1 Sharepoint Admin;Role T1 Sharepoint Admin
+Ama T1 SAP Admin;Role T1 SAP Admin
+Ama T1 User;Claim T1 User

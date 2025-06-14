@@ -1,9 +1,26 @@
 RoleName;OuName;Delegation
-Role Server Admin;%SvcAcctsOU%;ManageUsers
-Role OnSite Admin;%ClientsOU%;ManageComputers
-Role Helpdesk Admin;%EmployeeAcctsOU%;ManageUsers
-Role Helpdesk Admin;%SvcAcctsOU%;ManageUsers
-Role Helpdesk Admin;%RolesOU%;ManageGroups
-Role Helpdesk Admin;%ClientsOU%;ManageComputers
-Role Server Admin;%ServersOU%;ManageComputers
-Role AD Admin;%DSControlOU%;FullControl
+Pm AD OrgClient ManageComputer;%OrgClientsOU%;ManageComputers
+Pm AD OrgUser Employee Manage;%OrgEmployeeAcctsOU%;ManageUsers
+Pm AD OrgUser Employee PwReset;%OrgEmployeeAcctsOU%;ResetPwd
+Pm AD OrgGroup Role Manage;%OrgRolesOU%;ManageGroups
+Pm AD T0 User ServiceAccount Manage;%DSControlSvcAcctsOU%;ManageUsers
+Pm AD T0 User ServiceAccount PwReset;%DSControlSvcAcctsOU%;ResetPwd
+Pm AD T0 User Admin PwReset;%DSControlAdminsOU%;ResetPwd
+Pm AD T0 User Admin Manage;%DSControlAdminsOU%;ManageUsers
+Pm AD T0 User User PwReset;%DSControlStdUsersOU%;ResetPwd
+Pm AD T0 User User Manage;%DSControlStdUsersOU%;ManageUsers
+Pm AD T0 Group Permission Manage;%DSControlPermsOU%;ManageGroups
+Pm AD T0 Group Claim Manage;%DSControlClaimsOU%;ManageGroups
+Pm AD T0 Group Role Manage;%DSControlClaimsOU%;ManageGroups
+Pm AD T1 User ServiceAccount Manage;%T1SvcAcctsOU%;ManageUsers
+Pm AD T1 User ServiceAccount PwReset;%T1SvcAcctsOU%;ResetPwd
+Pm AD T1 User ServiceAccount Manage;%T1SvcAcctsOU%;ManageUsers
+Pm AD T1 User ServiceAccount PwReset;%T1SvcAcctsOU%;ResetPwd
+Pm AD T1 User Admin PwReset;%T1AdminsOU%;ResetPwd
+Pm AD T1 User Admin Manage;%T1AdminsOU%;ManageUsers
+Pm AD T1 User User PwReset;%T1StdUsersOU%;ResetPwd
+Pm AD T1 User User Manage;%T1StdUsersOU%;ManageUsers
+Pm AD T1 Group Permission Manage;%T1PermissionsOU%;ManageGroups
+Pm AD T1 Group Role Manage;%T1RolesOU%;ManageGroups
+Role T0 AD Admin;%OrgRoot%;FullControl
+Role T0 AD Admin;%OperationsRootOU%;FullControl

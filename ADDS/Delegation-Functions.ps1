@@ -1,16 +1,19 @@
-﻿
-$ErrorActionPreference = "stop"
+﻿$ErrorActionPreference = "Stop"
+
+If($PSVersionTable.PSVersion.Major -lt 5) {
+    Write-Error "This script requires powershell 5 or newer to run"
+}
 
 Set-Location $PSScriptRoot
 
 Function Log {
     Param(
         [string] $Msg,
-        [switch] $Err,
+        [switch] $IsError,
         [switch] $Warning
     )
 
-    If($Err) {
+    If($EIsErrorrror) {
         Write-Host "$Msg" -ForegroundColor Red
     } Elseif($Warning) {
         Write-Host "$Msg" -ForegroundColor Yellow
@@ -26,9 +29,9 @@ Function LogE {
 
     $Ex = $E
     
-    Log "Exception caught" -Err
+    Log "Exception caught" -Error
     Do {
-        Log "Error code: $($Ex.Exception.HResult): " -Err
+        Log "Error code: $($Ex.Exception.HResult): " -Error
         Log "$($Ex.Exception.Message)" -Warning
         Log "$($Ex.Exception.StackTrace)`n" -Warning
         $Ex = $Ex.InnerException
@@ -552,7 +555,7 @@ Function Set-FullControlDelegation {
     Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights GenericAll -InheritanceType $Inh
 }
 
-Function Remove-IdsFromSDDLACE {
+Function Remove-BuiltinFromSDDLACE {
     Param(
         [Hashtable]
         $RemoveIdentities,
@@ -562,71 +565,41 @@ Function Remove-IdsFromSDDLACE {
     )
 
     If([string]::IsNullOrWhiteSpace($SddlAce)) {
-        Write-Host "Empty input string" -ForegroundColor Red
+        Write-Verbose "Empty input string"
         return
     }
 
-    $Sections = [string[]] @()
-    $SectionStartIdx = 0
-    $SectionEndIdx = 0
-    do {
-        If($SectionEndIdx -gt 0) {
-            $SectionStartIdx = $SectionEndIdx + 1
-        } Else {
-            $SectionStartIdx = $SddlAce.IndexOf(":") - 1
-        }
-        
-        $SectionEndIdx = $SddlAce.IndexOf(":", $SectionStartIdx + 2) - 2
-        If($SectionEndIdx -lt 0) {
-            $Sections += ,($SddlAce.Substring($SectionStartIdx))
-        } Else {
-            $Sections += ,($SddlAce.Substring($SectionStartIdx, $SectionEndIdx - $SectionStartIdx + 1))
-        }
-        
-    } While($SectionEndIdx -gt 0)
+    $Pre = ""
+    $FirstPar = $SddlAce.IndexOf("(")
+    $Sddl = $SddlAce
+    If($FirstPar -gt 0) {
+        $Pre = $SddlAce.Substring(0, $FirstPar)
+        $Sddl = $SddlAce.Substring($FirstPar)
+    }
 
+    $tokens = $Sddl.Split(")(", [StringSplitOptions]::RemoveEmptyEntries)
     $Result = ""
-    $Updated = $False
-    Foreach($Section in $Sections) {
-        $Pre = ""
-        $FirstPar = $Section.IndexOf("(")
-        $Sddl = $Section
-        If($FirstPar -gt 0) {
-            $Pre = $Section.Substring(0, $FirstPar)
-            $Sddl = $Section.Substring($FirstPar + 1, $Section.Length - $FirstPar - 2)
-        }
+    $Altered = $False
+    Foreach($t in $Tokens) {
+        $Remove = $False
 
-        $tokens = $Sddl.Split(")(", [StringSplitOptions]::RemoveEmptyEntries)
-        $SectionResult = ""
-        $SectionAltered = $False
-        Foreach($t in $Tokens) {
-            $Remove = $False
-
-            Foreach($Key in $RemoveIdentities.Keys) { 
-                If($t.endsWith(";$Key")) {
-                    $Remove = $True
-                    Write-Host "Removing [$($RemoveIdentities[$Key])] ACE"
-                    Break
-                }
-            }
-
-            If(-Not $Remove) {
-                $SectionResult = "$SectionResult($t)"
-            } Else {
-                $SectionAltered = $True
+        Foreach($Key in $RemoveIdentities.Keys) { 
+            If($t.endsWith(";$Key")) {
+                $Remove = $True
+                Write-Verbose "Removing [$($RemoveIdentities[$Key])] ACE"
+                Break
             }
         }
 
-        If($SectionAltered) {
-            $SectionResult = "$Pre$SectionResult"
-            $Result = "$Result$SectionResult"
-            $Updated = $True
+        If(-Not $Remove) {
+            $Result = "$Result($t)"
         } Else {
-            $Result = "$Result$Section"
+            $Altered = $True
         }
     }
 
-    If($Updated) {
+    If($Altered) {
+        $Result = "$Pre$Result"
         Write-Output $Result
     } Else {
         Write-Output $SddlAce

@@ -1,42 +1,403 @@
 Name;Type;Scope
-Role Employee;Role;
-Role Tier 0 Admin;AdminRole;Universal
-Role Tier 1 Admin;AdminRole;Universal
-Role Tier 2 Admin;AdminRole;Universal
-Role Tier 3 Admin;AdminRole;Universal
-Role Server Admin;AdminRole;Universal
-Role AD Admin;DSRole;Global
-Role IDM Admin;DSRole;Universal
-Role PKI Admin;DSRole;Universal
-Role SharePoint Admin;AdminRole;
-Role ServiceAccount;AdminRole;
-Role ServiceAccount InteractiveLogon;AdminRole;
-Role SAP Admin;AdminRole;
-Role DB Admin;AdminRole;
-Role Network Admin;AdminRole;
-Role Web Admin;AdminRole;
-Role OnSite Admin;AdminRole;
-Role Helpdesk Admin;AdminRole;
-Role IT-Infra Tier 0 Owner;Role;
-Role IT-Infra Tier 1 Owner;Role;
-Role IT-Infra Tier 2 Owner;Role;
-Role IT-Infra Tier 3 Owner;Role;
-Role IT-Sec Officer;Role;
-Role InfoSec Officer;Role;
-Role IT-Infra DB Service Owner;Role;
-Role IT-Infra Web Service Owner;Role;
-Role IT-Infra IDM Service Owner;Role;
-Role IT-Infra AD Service Owner;Role;
-Role IT-Service SharePoint Service Owner;Role;
-Role IT-Service SAP Service Owner;Role;
-Computer Windows Clients;ClientGroup;
-Computer Windows Servers;ServerGroup;
-Pm Server LocalAdmin;Permission;
-Pm Server InteractiveLogon;Permission;
-Pm AD JoinComputer;DSPermission;
-Pm AD Employees PwReset;DSPermission;
-Pm AD Employees ManageUser;DSPermission;
-Pm AD Admins PwReset;DSPermission;
-Pm AD Admins ManageUser;DSPermission;
-Pm AD ServiceAccounts PwReset;DSPermission;
-Pm AD ServiceAccounts ManageUser;DSPermission;
+Role Org Employee;Role;Universal
+Role Org IT-Infra T0 Owner;Role;Universal
+Role Org IT-Infra T1 Owner;Role;Universal
+Role Org IT-Infra T2 Owner;Role;Universal
+Role Org IT-Infra T3 Owner;Role;Universal
+Role Org IT-Sec Officer;Role;Universal
+Role Org InfoSec Officer;Role;Universal
+Role Org IT-Infra DB Service Owner;Role;Universal
+Role Org IT-Infra Web Service Owner;Role;Universal
+Role Org IT-Infra IDM Service Owner;Role;Universal
+Role Org IT-Infra AD Service Owner;Role;Universal
+Role Org IT-Service SharePoint Service Owner;Role;Universal
+Role Org IT-Service SAP Service Owner;Role;Universal
+Role Org Win Client;ClientGroup;Universal
+
+Role T0 Win Server;DSServerGroup;Universal
+Role T0 Linux Server;DSServerGroup;Universal
+Role T0 AD Mgmt Server;DSServerGroup;Universal
+Role T0 AD App Server;DSServerGroup;Universal
+Role T0 AD SAW Server;DSServerGroup;Universal
+Role T0 DB Mgmt Server;DSServerGroup;Universal
+Role T0 DB App Server;DSServerGroup;Universal
+Role T0 DB Server;DSServerGroup;Universal
+Role T0 IDM Mgmt Server;DSServerGroup;Universal
+Role T0 IDM App Server;DSServerGroup;Universal
+Role T0 IDM SAW Server;DSServerGroup;Universal
+Role T0 PKI Mgmt Server;DSServerGroup;Universal
+Role T0 PKI SAW Server;DSServerGroup;Universal
+Role T0 PKI App Server;DSServerGroup;Universal
+Role T0 EDR Mgmt Server;DSServerGroup;Universal
+Role T0 EDR App Server;DSServerGroup;Universal
+Role T0 EDR SAW Server;DSServerGroup;Universal
+Role T0 Monitoring Mgmt Server;DSServerGroup;Universal
+Role T0 Monitoring App Server;DSServerGroup;Universal
+Role T0 Monitoring SAW Server;DSServerGroup;Universal
+Role T0 Device PAW;DSServerGroup;Universal
+
+Role T1 DB Mgmt Server;DSServerGroup;Universal
+Role T1 DB App Server;DSServerGroup;Universal
+Role T1 DB SAW Server;DSServerGroup;Universal
+Role T1 EDR Mgmt Server;DSServerGroup;Universal
+Role T1 EDR App Server;DSServerGroup;Universal
+Role T1 EDR SAW Server;DSServerGroup;Universal
+Role T1 Sharepoint Mgmt Server;DSServerGroup;Universal
+Role T1 Sharepoint App Server;DSServerGroup;Universal
+Role T1 Sharepoint SAW Server;DSServerGroup;Universal
+Role T1 SAP Mgmt Server;DSServerGroup;Universal
+Role T1 SAP App Server;DSServerGroup;Universal
+Role T1 SAP SAW Server;DSServerGroup;Universal
+Role T1 Monitoring Mgmt Server;DSServerGroup;Universal
+Role T1 Monitoring App Server;DSServerGroup;Universal
+Role T1 Monitoring SAW Server;DSServerGroup;Universal
+Role T1 Device PAW;DSServerGroup;Universal
+
+Role T0 AD Admin;DSRole;Universal
+Role T0 AD User;DSRole;Universal
+Role T0 AD ServiceAccount;DSRole;Universal
+Role T0 DB Admin;DSRole;Universal
+Role T0 DB User;DSRole;Universal
+Role T0 DB ServiceAccount;DSRole;Universal
+Role T0 IDM Admin;DSRole;Universal
+Role T0 IDM User;DSRole;Universal
+Role T0 IDM ServiceAccount;DSRole;Universal
+Role T0 PKI Admin;DSRole;Universal
+Role T0 PKI User;DSRole;Universal
+Role T0 PKI ServiceAccount;DSRole;Universal
+Role T0 EDR Admin;DSRole;Universal
+Role T0 EDR User;DSRole;Universal
+Role T0 EDR ServiceAccount;DSRole;Universal
+Role T0 Monitoring Admin;DSRole;Universal
+Role T0 Monitoring User;DSRole;Universal
+Role T0 Monitoring ServiceAccount;DSRole;Universal
+
+Role T1 Sharepoint User;DSRole;Universal
+Role T1 SharePoint Admin;DSRole;Universal
+Role T1 Sharepoint ServiceAccount;DSRole;Universal
+Role T1 SAP User;DSRole;Universal
+Role T1 SAP Admin;DSRole;Universal
+Role T1 SAP ServiceAccount;DSRole;Universal
+Role T1 DB User;DSRole;Universal
+Role T1 DB Admin;DSRole;Universal
+Role T1 DB ServiceAccount;DSRole;Universal
+Role T1 EDR User;DSRole;Universal
+Role T1 EDR Admin;DSRole;Universal
+Role T1 EDR ServiceAccount;DSRole;Universal
+Role T1 Monitoring User;DSRole;Universal
+Role T1 Monitoring Admin;DSRole;Universal
+Role T1 Monitoring ServiceAccount;DSRole;Universal
+Role T1 Web User;DSRole;Universal
+Role T1 Web Admin;DSRole;Universal
+Role T1 Web ServiceAccount;DSRole;Universal
+
+Role T2 OnSite Admin;DSRole;Universal
+Role T2 Helpdesk Admin;DSRole;Universal
+
+
+Pm AD OrgClient InteractiveLogon;DSPermission;DomainLocal
+Pm AD OrgClient RdpLogon;DSPermission;DomainLocal
+Pm AD OrgClient ManageComputer;DSPermission;DomainLocal
+Pm AD OrgClient LocalAdmin;DSPermission;DomainLocal
+Pm AD JoinComputer;DSPermission;DomainLocal
+Pm AD OrgUser Employee ReadAllProperties;DSPermission;DomainLocal
+Pm AD OrgUser Employee PwReset;DSPermission;DomainLocal
+Pm AD OrgUser Employee Create;DSPermission;DomainLocal
+Pm AD OrgUser Employee Delete;DSPermission;DomainLocal
+Pm AD OrgUser Employee Manage;DSPermission;DomainLocal
+Pm AD OrgGroup Role Manage;DSPermission;DomainLocal
+Pm AD OrgGroup Role Create;DSPermission;DomainLocal
+Pm AD OrgGroup Role Delete;DSPermission;DomainLocal
+Pm AD OrgGroup Permission Manage;DSPermission;DomainLocal
+Pm AD OrgGroup Permission Create;DSPermission;DomainLocal
+Pm AD OrgGroup Permission Delete;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount FullControl;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount ReadAllProperties;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount Create;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount Delete;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount PwReset;DSPermission;DomainLocal
+Pm AD T0 User ServiceAccount Manage;DSPermission;DomainLocal
+Pm AD T0 User Admin FullControl;DSPermission;DomainLocal
+Pm AD T0 User Admin ReadAllProperties;DSPermission;DomainLocal
+Pm AD T0 User Admin Create;DSPermission;DomainLocal
+Pm AD T0 User Admin Delete;DSPermission;DomainLocal
+Pm AD T0 User Admin PwReset;DSPermission;DomainLocal
+Pm AD T0 User Admin Manage;DSPermission;DomainLocal
+Pm AD T0 User User FullControl;DSPermission;DomainLocal
+Pm AD T0 User User ReadAllProperties;DSPermission;DomainLocal
+Pm AD T0 User User Create;DSPermission;DomainLocal
+Pm AD T0 User User Delete;DSPermission;DomainLocal
+Pm AD T0 User User PwReset;DSPermission;DomainLocal
+Pm AD T0 User User Manage;DSPermission;DomainLocal
+Pm AD T0 Group Role FullControl;DSPermission;DomainLocal
+Pm AD T0 Group Role Manage;DSPermission;DomainLocal
+Pm AD T0 Group Role Create;DSPermission;DomainLocal
+Pm AD T0 Group Role Delete;DSPermission;DomainLocal
+Pm AD T0 Group Permission FullControl;DSPermission;DomainLocal
+Pm AD T0 Group Permission Manage;DSPermission;DomainLocal
+Pm AD T0 Group Permission Create;DSPermission;DomainLocal
+Pm AD T0 Group Permission Delete;DSPermission;DomainLocal
+Pm AD T0 Group Claim FullControl;DSPermission;DomainLocal
+Pm AD T0 Group Claim Manage;DSPermission;DomainLocal
+Pm AD T0 Group Claim Create;DSPermission;DomainLocal
+Pm AD T0 Group Claim Delete;DSPermission;DomainLocal
+Pm AD T0 Group AMA FullControl;DSPermission;DomainLocal
+Pm AD T0 Group AMA Manage;DSPermission;DomainLocal
+Pm AD T0 Group AMA Create;DSPermission;DomainLocal
+Pm AD T0 Group AMA Delete;DSPermission;DomainLocal
+Pm AD T0 Device PAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Device PAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Device PAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Device PAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Device PAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Device PAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server AD RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server AD SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server PKI RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server PKI SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server IDM RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server IDM SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server DB RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server DB SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server EDR RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server EDR SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T0 Server Monitoring SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount FullControl;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount ReadAllProperties;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount Create;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount Delete;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount PwReset;DSPermission;DomainLocal
+Pm AD T1 User ServiceAccount Manage;DSPermission;DomainLocal
+Pm AD T1 User Admin FullControl;DSPermission;DomainLocal
+Pm AD T1 User Admin ReadAllProperties;DSPermission;DomainLocal
+Pm AD T1 User Admin Create;DSPermission;DomainLocal
+Pm AD T1 User Admin Delete;DSPermission;DomainLocal
+Pm AD T1 User Admin PwReset;DSPermission;DomainLocal
+Pm AD T1 User Admin Manage;DSPermission;DomainLocal
+Pm AD T1 User User FullControl;DSPermission;DomainLocal
+Pm AD T1 User User ReadAllProperties;DSPermission;DomainLocal
+Pm AD T1 User User Create;DSPermission;DomainLocal
+Pm AD T1 User User Delete;DSPermission;DomainLocal
+Pm AD T1 User User PwReset;DSPermission;DomainLocal
+Pm AD T1 User User Manage;DSPermission;DomainLocal
+Pm AD T1 Group Role FullControl;DSPermission;DomainLocal
+Pm AD T1 Group Role Manage;DSPermission;DomainLocal
+Pm AD T1 Group Role Create;DSPermission;DomainLocal
+Pm AD T1 Group Role Delete;DSPermission;DomainLocal
+Pm AD T1 Group Permission FullControl;DSPermission;DomainLocal
+Pm AD T1 Group Permission Manage;DSPermission;DomainLocal
+Pm AD T1 Group Permission Create;DSPermission;DomainLocal
+Pm AD T1 Group Permission Delete;DSPermission;DomainLocal
+Pm AD T1 Device PAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Device PAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Device PAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Device PAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Device PAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Device PAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Sharepoint SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server SAP RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server SAP SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server IDM RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server IDM SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server DB RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server DB SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server EDR RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server EDR SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Monitoring SAW LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Web RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web LapsDecryptPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW InteractiveLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW LocalAdmin;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW RdpLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW ServiceLogon;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW LapsReadPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW LapsResetPwd;DSPermission;DomainLocal
+Pm AD T1 Server Web SAW LapsDecryptPwd;DSPermission;DomainLocal
+Claim SmartCardLogon;Claim;Universal
+Claim T0 Admin;Claim;Universal
+Claim T0 User;Claim;Universal
+Claim T0 ServiceAccount;Claim;Universal
+Claim T1 Admin;Claim;Universal
+Claim T1 User;Claim;Universal
+Claim T1 ServiceAccount;Claim;Universal
+Claim T2 Admin;Claim;Universal
+Claim T2 User;Claim;Universal
+Claim T3 Admin;Claim;Universal
+Ama T0 Admin;AMA;Universal
+Ama T0 User;AMA;Universal
+Ama T0 AD Admin;AMA;Universal
+Ama T0 AD User;AMA;Universal
+Ama T0 IDM Admin;AMA;Universal
+Ama T0 IDM User;AMA;Universal
+Ama T0 PKI Admin;AMA;Universal
+Ama T0 PKI User;AMA;Universal
+Ama T0 EDR Admin;AMA;Universal
+Ama T0 EDR User;AMA;Universal
+Ama T0 DB Admin;AMA;Universal
+Ama T0 DB User;AMA;Universal
+Ama T0 Monitoring Admin;AMA;Universal
+Ama T0 Monitoring User;AMA;Universal
+Ama T1 Admin;AMA;Universal
+Ama T1 User;AMA;Universal
+Ama T1 EDR Admin;AMA;Universal
+Ama T1 EDR User;AMA;Universal
+Ama T1 DB Admin;AMA;Universal
+Ama T1 DB User;AMA;Universal
+Ama T1 Monitoring Admin;AMA;Universal
+Ama T1 Monitoring User;AMA;Universal
+Ama T1 SAP Admin;AMA;Universal
+Ama T1 SAP User;AMA;Universal
+Ama T1 Sharepoint Admin;AMA;Universal
+Ama T1 Sharepoint User;AMA;Universal

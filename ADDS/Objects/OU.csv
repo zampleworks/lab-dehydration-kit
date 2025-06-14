@@ -1,22 +1,59 @@
 Parent;Name;CN;DisplayName;Created
-%RootDN%;ObjectsRoot;%DomainNBName%;%DomainNBName%;false
-%ObjectsRoot%;GroupsOU;Groups;Groups;false
-%ObjectsRoot%;UsersOU;Users;Users;false
-%ObjectsRoot%;ComputersOU;Computers;Computers;false
-%UsersOU%;SvcAcctsOU;ServiceAccounts;ServiceAccounts;false
-%UsersOU%;EmployeeAcctsOU;Employees;Employees;false
-%UsersOU%;AdminAcctsOU;Admins;Admins;false
-%ComputersOU%;ClientsOU;Clients;Clients;false
-%ComputersOU%;ServersOU;Servers;Servers;false
-%GroupsOU%;RolesOU;Roles;Roles;false
-%GroupsOU%;AdminRolesOU;AdminRoles;AdminRoles;false
-%GroupsOU%;PermissionsOU;Permissions;Permissions;false
-%GroupsOU%;ClientGroupsOU;Client Groups;Client Groups;false
-%GroupsOU%;ServerGroupsOU;Server Groups;Server Groups;false
-%RootDN%;DSControlOU;ADControl;ADControl;false
-%DSControlOU%;DSControlGroupsOU;Groups;Groups;false
+%RootDN%;OrgRoot;%DomainNBName%;%DomainNBName%;false
+%OrgRoot%;OrgGroupsOU;Groups;Groups;false
+%OrgRoot%;OrgUsersOU;Users;Users;false
+%OrgRoot%;OrgComputersOU;Computers;Computers;false
+%OrgUsersOU%;OrgEmployeeAcctsOU;Employees;Employees;false
+%OrgGroupsOU%;OrgRolesOU;Roles;Roles;false
+%OrgGroupsOU%;OrgPermissionsOU;Permissions;Permissions;false
+%OrgComputersOU%;OrgClientsOU;Clients;Clients;false
+
+%RootDN%;OperationsRootOU;OperationsControl;OperationsControl;false
+%OperationsRootOU%;T1OU;T1;T1;false
+%T1OU%;T1GroupsOU;Groups;Groups;false
+%T1OU%;T1UsersOU;Users;Users;false
+%T1OU%;T1ComputersOU;Computers;Computers;false
+%T1UsersOU%;T1StdUsersOU;Users;Users;false
+%T1UsersOU%;T1SvcAcctsOU;ServiceAccounts;ServiceAccounts;false
+%T1UsersOU%;T1AdminsOU;Admins;Admins;false
+%T1ComputersOU%;T1PAWOU;PAW;PAW;false
+%T1ComputersOU%;T1DBServersOU;DB;DB;false
+%T1ComputersOU%;T1DBSAWServersOU;DB SAW;DB SAW;false
+%T1ComputersOU%;T1EDRServersOU;EDR;EDR;false
+%T1ComputersOU%;T1EDRSAWServersOU;EDR SAW;EDR SAW;false
+%T1ComputersOU%;T1MonitoringServersOU;Monitoring;Monitoring;false
+%T1ComputersOU%;T1MonitoringSAWServersOU;Monitoring SAW;Monitoring SAWfalse
+%T1ComputersOU%;T1SharepointServersOU;Sharepoint;Sharepoint;false
+%T1ComputersOU%;T1SharepointSAWServersOU;Sharepoint SAW;Sharepoint SAW;false
+%T1ComputersOU%;T1SAPServersOU;SAP;SAP;false
+%T1ComputersOU%;T1SAPSAWServersOU;SAP SAW;SAP SAW;false
+%T1ComputersOU%;T1WebServersOU;Web;Web;false
+%T1ComputersOU%;T1WebSAWServersOU;Web SAW;Web SAW;false
+
+%T1GroupsOU%;T1RolesOU;Roles;Roles;false
+%T1GroupsOU%;T1PermissionsOU;Permissions;Permissions;false
+
+%OperationsRootOU%;DSControlOU;T0;T0;false
+%DSControlOU%;DSControlComputersOU;Computers;Computers;false
+%DSControlComputersOU%;DSControlPAWDeviceOU;PAW Devices;PAW;false
+%DSControlComputersOU%;DSControlADServersOU;AD;AD;false
+%DSControlComputersOU%;DSControlADSAWServersOU;AD SAW;AD SAW;false
+%DSControlComputersOU%;DSControlPKIServersOU;PKI;PKI;false
+%DSControlComputersOU%;DSControlPKISAWServersOU;PKI SAW;PKI SAW;false
+%DSControlComputersOU%;DSControlIDMServersOU;IDM;IDM;false
+%DSControlComputersOU%;DSControlIDMSAWServersOU;IDM SAW;IDM SAW;false
+%DSControlComputersOU%;DSControlDBServersOU;DB;DB;false
+%DSControlComputersOU%;DSControlDBSAWServersOU;DB SAW;DB SAW;false
+%DSControlComputersOU%;DSControlEDRServersOU;EDR;EDR;false
+%DSControlComputersOU%;DSControlEDRSAWServersOU;EDR SAW;EDR SAW;false
+%DSControlComputersOU%;DSControlMonitoringServersOU;Monitoring;Monitoring;false
+%DSControlComputersOU%;DSControlMonitoringSAWServersOU;Monitoring SAW;Monitoring SAW;false
 %DSControlOU%;DSControlUsersOU;Users;Users;false
+%DSControlUsersOU%;DSControlStdUsersOU;Users;Users;false
 %DSControlUsersOU%;DSControlAdminsOU;Admins;Admins;false
 %DSControlUsersOU%;DSControlSvcAcctsOU;ServiceAccounts;ServiceAccounts;false
+%DSControlOU%;DSControlGroupsOU;Groups;Groups;false
 %DSControlGroupsOU%;DSControlPermsOU;Permissions;Permissions;false
 %DSControlGroupsOU%;DSControlRolesOU;Roles;Roles;false
+%DSControlGroupsOU%;DSControlClaimsOU;Claims;Claims;false
+%DSControlGroupsOU%;DSControlAmaOU;AMA;AMA;false

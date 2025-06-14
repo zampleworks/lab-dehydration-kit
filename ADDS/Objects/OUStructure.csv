@@ -1,22 +1,56 @@
 ﻿Name;DN
-%ObjectsRoot%;OU=ZWCORP,DC=zwks,DC=xyz
-%GroupsOU%;OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%UsersOU%;OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
-%ComputersOU%;OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
-%SvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
-%EmployeeAcctsOU%;OU=Employees,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
-%AdminAcctsOU%;OU=Admins,OU=Users,OU=ZWCORP,DC=zwks,DC=xyz
-%ClientsOU%;OU=Clients,OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
-%ServersOU%;OU=Servers,OU=Computers,OU=ZWCORP,DC=zwks,DC=xyz
-%RolesOU%;OU=Roles,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%AdminRolesOU%;OU=AdminRoles,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%PermissionsOU%;OU=Permissions,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%ClientGroupsOU%;OU=Client Groups,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%ServerGroupsOU%;OU=Server Groups,OU=Groups,OU=ZWCORP,DC=zwks,DC=xyz
-%DSControlOU%;OU=ADControl,DC=zwks,DC=xyz
-%DSControlGroupsOU%;OU=Groups,OU=ADControl,DC=zwks,DC=xyz
-%DSControlUsersOU%;OU=Users,OU=ADControl,DC=zwks,DC=xyz
-%DSControlAdminsOU%;OU=Admins,OU=Users,OU=ADControl,DC=zwks,DC=xyz
-%DSControlSvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=ADControl,DC=zwks,DC=xyz
-%DSControlPermsOU%;OU=Permissions,OU=Groups,OU=ADControl,DC=zwks,DC=xyz
-%DSControlRolesOU%;OU=Roles,OU=Groups,OU=ADControl,DC=zwks,DC=xyz
+%OrgRoot%;OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgGroupsOU%;OU=Groups,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgUsersOU%;OU=Users,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgComputersOU%;OU=Computers,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgEmployeeAcctsOU%;OU=Employees,OU=Users,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgRolesOU%;OU=Roles,OU=Groups,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgPermissionsOU%;OU=Permissions,OU=Groups,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OrgClientsOU%;OU=Clients,OU=Computers,OU=AD08,DC=ad08,DC=zwks,DC=xyz
+%OperationsRootOU%;OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1OU%;OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1GroupsOU%;OU=Groups,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1UsersOU%;OU=Users,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1ComputersOU%;OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1StdUsersOU%;OU=Users,OU=Users,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1SvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1AdminsOU%;OU=Admins,OU=Users,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1PAWOU%;OU=PAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1DBServersOU%;OU=DB,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1DBSAWServersOU%;OU=DB SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1EDRServersOU%;OU=EDR,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1EDRSAWServersOU%;OU=EDR SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1MonitoringServersOU%;OU=Monitoring,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1MonitoringSAWServersOU%;OU=Monitoring SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1SharepointServersOU%;OU=Sharepoint,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1SharepointSAWServersOU%;OU=Sharepoint SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1SAPServersOU%;OU=SAP,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1SAPSAWServersOU%;OU=SAP SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1WebServersOU%;OU=Web,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1WebSAWServersOU%;OU=Web SAW,OU=Computers,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1RolesOU%;OU=Roles,OU=Groups,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%T1PermissionsOU%;OU=Permissions,OU=Groups,OU=T1,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlOU%;OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlComputersOU%;OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlPAWDeviceOU%;OU=PAW Devices,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlADServersOU%;OU=AD,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlADSAWServersOU%;OU=AD SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlPKIServersOU%;OU=PKI,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlPKISAWServersOU%;OU=PKI SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlIDMServersOU%;OU=IDM,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlIDMSAWServersOU%;OU=IDM SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlDBServersOU%;OU=DB,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlDBSAWServersOU%;OU=DB SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlEDRServersOU%;OU=EDR,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlEDRSAWServersOU%;OU=EDR SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlMonitoringServersOU%;OU=Monitoring,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlMonitoringSAWServersOU%;OU=Monitoring SAW,OU=Computers,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlUsersOU%;OU=Users,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlStdUsersOU%;OU=Users,OU=Users,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlAdminsOU%;OU=Admins,OU=Users,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlSvcAcctsOU%;OU=ServiceAccounts,OU=Users,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlGroupsOU%;OU=Groups,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlPermsOU%;OU=Permissions,OU=Groups,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlRolesOU%;OU=Roles,OU=Groups,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlClaimsOU%;OU=Claims,OU=Groups,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
+%DSControlAmaOU%;OU=AMA,OU=Groups,OU=T0,OU=OperationsControl,DC=ad08,DC=zwks,DC=xyz
