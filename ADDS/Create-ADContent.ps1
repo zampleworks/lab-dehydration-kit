@@ -27,6 +27,9 @@ $DomainNBName = Get-ADDomain | Select-Object -ExpandProperty NetbiosName
 $DomainDNSName = Get-ADDomain | Select-Object -ExpandProperty DNSRoot
 $DomainDN = Get-ADDomain | Select-Object -ExpandProperty DistinguishedName 
 
+$EmailDomain = $DomainDNSName
+$UpnDomain = $DomainDNSName
+
 $RootDN = $DomainDN
 #$RootDN = "OU=TestRoot,$DomainDN"
 
@@ -114,10 +117,13 @@ Foreach($Ou in $Ous) {
     $CN = $Ou.CN
     $DN = "OU=$($CN),$Path"
     
-    If(-Not ($ExistingOus.Keys -contains $DN)) {
+    If($ExistingOuDns -contains $DN) {
+        $Replacements.Add("%$Name%", $DN)
+    } Else {
         Try {
             $NewOu = New-ADOrganizationalUnit -Path $Parent -DisplayName $Ou.DisplayName -Name $CN -PassThru -Confirm:$False
-            $ExistingOus[$NewOu.DistinguishedName] = $NewOu
+            $ExistingOus[$NewOu.Name] = $NewOu
+            $ExistingOuDns = $ExistingOus.Values | Select-Object -ExpandProperty DistinguishedName
             Write-Verbose "Created OU for $Name : $DN"
         } Catch {
             Write-Error "Could not create OU [$DN]: $($_.Exception.Message)"
@@ -256,7 +262,7 @@ Foreach($Account in $AccountDefinitions) {
         $u = $Null
         $NewPwd = New-RandomPassword -Length 24
         $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
-        $u = New-ADUser -name $n -displayname $n -Samaccountname $s -userprincipalname "$s@$DomainDNSName" -path $Ou -Enabled $false -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -Confirm:$False -AccountPassword $Pw -PassThru
+        $u = New-ADUser -name $n -displayname $n -Samaccountname $s -userprincipalname "$s@$UpnDomain" -path $Ou -Enabled $false -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -Confirm:$False -AccountPassword $Pw -PassThru
         Set-ADAccountPassword $u -NewPassword $NewSecPwd -Reset
         Enable-ADAccount $u
         $ExistingUsers.Add($s, $u)
@@ -286,7 +292,7 @@ Foreach($Dept in $Departments) {
         Try {
             $NewGroup = $Null
             $NewGroup = New-ADGroup -Name $GroupName -DisplayName $GroupName -GroupCategory Security -GroupScope Global -Path $RolesOU -PassThru
-            $ExistingGroups[$NewGroup.Samaccountname] = $NewGroup
+            $ExistingGroups.Add($GroupName, $NewGroup)
             Write-Verbose "Created business role group $GroupName"
         } Catch {
             Write-Error "Error creating business role group ${GroupName}: $($_.Exception.Message)"
@@ -384,7 +390,7 @@ Foreach($Group in $Groups) {
     Try {
         $NewGroup = $Null
         $NewGroup = New-ADGroup -Name $GroupName -DisplayName $GroupName -GroupCategory Security -GroupScope $Group.Scope -Path $CreateIn -PassThru
-        $ExistingGroups[$NewGroup.Samaccountname] = $NewGroup
+        $ExistingGroups.Add($GroupName, $NewGroup)
         Write-Verbose "Created role group [$GroupName] in [$CreateIn]"
     } Catch {
         Write-Error "Error creating AD group [${GroupName}]: $($_.Exception.Message)"
@@ -425,17 +431,18 @@ Foreach($Emp in $Employees) {
         $DispN += " $Sn"
 
         $Sam = "$ObjectsPrefix$($Emp.UserNBAccount.Substring($Emp.UserNBAccount.IndexOf("\") + 1))"
-        $Upn = Convert-DiacriticCharacters "$Fn.$Sn@$DomainDNSName"
+        $Upn = Convert-DiacriticCharacters "$Fn.$Sn@$UpnDomain"
 
         If($ExistingUsers.ContainsKey($Sam)) {
             $AdUser = $ExistingUsers | Where-Object { $_.Samaccountname -eq $Sam }
         } Else {
             Try {
+                $NewPwd = New-RandomPassword -Length 24
+                $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
+                
                 $AdUser = New-ADUser -name $DispN -displayname $DispN -GivenName $Fn -Surname $Sn -Samaccountname $Sam -userprincipalname $Upn -EmployeeNumber $Bid -Department $DeptName `
                      -Title $JobTitle -path $EmployeesOu -Enabled $false -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -Confirm:$False -AccountPassword $Pw -PassThru
                 
-                $NewPwd = New-RandomPassword -Length 24
-                $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
                 "$Sam;$NewPwd" | Out-File $PwdFilePath -Append
                 Set-ADAccountPassword $AdUser -NewPassword $NewSecPwd -Reset
                 
@@ -517,7 +524,7 @@ Foreach($Admin in $AdminAccounts) {
         "$an;$NewPwd" | Out-File $PwdFilePath -Append
         
         $NewAdUser = New-ADUser -Name $DisplayName -SamAccountName $an -AccountPassword $NewSecPwd -GivenName $AdUserOwner.GivenName -Path $TargetOu -Surname $AdUserOwner.Surname -DisplayName $DisplayName `
-            -Enabled $True -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -UserPrincipalName "$an@$DomainDNSName" -PassThru
+            -Enabled $True -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -UserPrincipalName "$an@$UpnDomain" -PassThru
     
         $ExistingUsers[$an] = $NewAdUser
         Write-Verbose "Created admin account [$an] for [$un]"
@@ -557,13 +564,13 @@ Foreach($Admin in $AdminAccounts) {
     }
 
     If($ExistingUsers.ContainsKey($an)) {
-        Write-Verbose "$Tier account [$an] for [$un] already exists."
+        Write-Verbose "$Tier admin account [$an] for [$un] already exists."
         continue
     } 
     
     Try {
         $name = $AdUserOwner.Name
-        $DisplayName = "$Tier $name"
+        $DisplayName = "$Tier Admin $name"
         
         $NewPwd = New-RandomPassword -Length 24
         $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
@@ -571,7 +578,7 @@ Foreach($Admin in $AdminAccounts) {
         
         $NewAdUser = $Null
         $NewAdUser = New-ADUser -Name $DisplayName -SamAccountName $an -AccountPassword $NewSecPwd -GivenName $AdUserOwner.GivenName -Path $TargetOu -Surname $AdUserOwner.Surname -DisplayName $DisplayName `
-            -Enabled $True -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -UserPrincipalName "$an@$DomainDNSName" -PassThru
+            -Enabled $True -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -UserPrincipalName "$an@$UpnDomain" -PassThru
 
         $ExistingUsers[$an] = $NewAdUser
 
@@ -586,7 +593,7 @@ Foreach($Admin in $AdminAccounts) {
 Write-Host "Setting email on all employee accounts"
 get-aduser -filter * -Searchbase $EmployeesOu | ForEach-Object { 
     $Name = $_.UserPrincipalName.subString(0, $_.UserPrincipalName.IndexOf("@"))
-	Set-aduser $_ -EmailAddress "$Name@zampleworks.com"
+	Set-aduser $_ -EmailAddress "$Name@$EmailDomain"
 }
 
 #
