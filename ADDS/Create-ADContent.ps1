@@ -459,7 +459,7 @@ Foreach($Emp in $Employees) {
 
         $EmplGroup = Get-ADGroup "$($ObjectsPrefix)Role Org Employee" -Properties members
         If(-Not ($EmplGroup.Members -contains $AdUser)) {
-            Write-Verbose  "Add to [$($EmplGroup.Samaccountname)]: [$($u.Name)] [$DomainNBName\$($AdUser.SamAccountName)]"
+            Write-Verbose  "Add to [$($EmplGroup.Samaccountname)]: [$($AdUser.Name)] [$DomainNBName\$($AdUser.SamAccountName)]"
             Add-ADGroupMember $EmplGroup -Members $AdUser | Out-Null
         }
 
