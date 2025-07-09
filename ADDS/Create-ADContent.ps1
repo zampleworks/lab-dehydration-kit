@@ -648,3 +648,25 @@ Foreach($Entry in $GroupMembers) {
         }
     }
 }
+
+<#
+#
+# Reset All user passwords
+#
+
+$Domain = Get-AdDomain
+$DomainNBName = $Domain.NetBIOSName
+$DomainNBName,"OperationsControl" | % {Get-ADOrganizationalUnit -Filter {ou -eq $_ }} | select -ExpandProperty distinguishedname | % { get-aduser -filter * -searchbase $_ } | % { 
+    $User = $_
+    $s = $User.Samaccountname
+
+    Write-Host "$s"
+
+    $NewPwd = New-RandomPassword -Length 24
+    $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
+    "$s;$NewPwd" | Out-File $PwdFilePath -Append
+    
+    Set-ADAccountPassword -Identity $User -NewPassword $NewSecPwd -Reset   
+}
+
+#>
