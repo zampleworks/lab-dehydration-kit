@@ -22,6 +22,7 @@ If(-Not (Test-Path $PwdFilePath -PathType Leaf)) {
 }
 
 $PwdFilePath = Get-ChildItem ".\User-pwd.csv" | Select-Object -ExpandProperty FullName
+$PwdLen = 32
 
 $DomainNBName = Get-ADDomain | Select-Object -ExpandProperty NetbiosName
 $DomainDNSName = Get-ADDomain | Select-Object -ExpandProperty DNSRoot
@@ -260,7 +261,7 @@ Foreach($Account in $AccountDefinitions) {
 
     Try {
         $u = $Null
-        $NewPwd = New-RandomPassword -Length 24
+        $NewPwd = New-RandomPassword -Length $PwdLen
         $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
         $u = New-ADUser -name $n -displayname $n -Samaccountname $s -userprincipalname "$s@$UpnDomain" -path $Ou -Enabled $false -KerberosencryptionType AES128,AES256 -AccountNotDelegated $true -Confirm:$False -AccountPassword $Pw -PassThru
         Set-ADAccountPassword $u -NewPassword $NewSecPwd -Reset
@@ -437,7 +438,7 @@ Foreach($Emp in $Employees) {
             $AdUser = $ExistingUsers | Where-Object { $_.Samaccountname -eq $Sam }
         } Else {
             Try {
-                $NewPwd = New-RandomPassword -Length 24
+                $NewPwd = New-RandomPassword -Length $PwdLen
                 $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
                 
                 $AdUser = New-ADUser -name $DispN -displayname $DispN -GivenName $Fn -Surname $Sn -Samaccountname $Sam -userprincipalname $Upn -EmployeeNumber $Bid -Department $DeptName `
@@ -519,7 +520,7 @@ Foreach($Admin in $AdminAccounts) {
         $DisplayName = "$Tier Admin $name"
         $NewAdUser = $Null
 
-        $NewPwd = New-RandomPassword -Length 24
+        $NewPwd = New-RandomPassword -Length $PwdLen
         $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
         "$an;$NewPwd" | Out-File $PwdFilePath -Append
         
@@ -572,7 +573,7 @@ Foreach($Admin in $AdminAccounts) {
         $name = $AdUserOwner.Name
         $DisplayName = "$Tier Admin $name"
         
-        $NewPwd = New-RandomPassword -Length 24
+        $NewPwd = New-RandomPassword -Length $PwdLen
         $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
         "$an;$NewPwd" | Out-File $PwdFilePath -Append
         
@@ -662,7 +663,7 @@ $DomainNBName,"OperationsControl" | % {Get-ADOrganizationalUnit -Filter {ou -eq 
 
     Write-Host "$s"
 
-    $NewPwd = New-RandomPassword -Length 24
+    $NewPwd = New-RandomPassword -Length $PwdLen
     $NewSecPwd = ConvertTo-SecureString $NewPwd -AsPlainText -Force
     "$s;$NewPwd" | Out-File $PwdFilePath -Append
     
