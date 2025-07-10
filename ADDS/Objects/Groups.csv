@@ -62,6 +62,7 @@ Role T0 DB ServiceAccount;DSRole;Universal
 Role T0 IDM Admin;DSRole;Universal
 Role T0 IDM User;DSRole;Universal
 Role T0 IDM ServiceAccount;DSRole;Universal
+Role T0 IDM AD Connector;DSRole;Universal
 Role T0 PKI Admin;DSRole;Universal
 Role T0 PKI User;DSRole;Universal
 Role T0 PKI ServiceAccount;DSRole;Universal
@@ -94,7 +95,6 @@ Role T1 Web ServiceAccount;DSRole;Universal
 Role T2 OnSite Admin;DSRole;Universal
 Role T2 Helpdesk Admin;DSRole;Universal
 
-
 Pm AD OrgClient InteractiveLogon;DSPermission;DomainLocal
 Pm AD OrgClient RdpLogon;DSPermission;DomainLocal
 Pm AD OrgClient ManageComputer;DSPermission;DomainLocal
@@ -105,6 +105,7 @@ Pm AD OrgUser Employee PwReset;DSPermission;DomainLocal
 Pm AD OrgUser Employee Create;DSPermission;DomainLocal
 Pm AD OrgUser Employee Delete;DSPermission;DomainLocal
 Pm AD OrgUser Employee Manage;DSPermission;DomainLocal
+Pm AD OrgUser Employee FullControl;DSPermission;DomainLocal
 Pm AD OrgGroup Role Manage;DSPermission;DomainLocal
 Pm AD OrgGroup Role Create;DSPermission;DomainLocal
 Pm AD OrgGroup Role Delete;DSPermission;DomainLocal

@@ -1,8 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
-
-If($PSVersionTable.PSVersion.Major -lt 5) {
-    Write-Error "This script requires powershell 5 or newer to run"
-}
+﻿$ErrorActionPreference = "stop"
 
 Set-Location $PSScriptRoot
 
@@ -13,7 +9,7 @@ Function Log {
         [switch] $Warning
     )
 
-    If($EIsErrorrror) {
+    If($IsError) {
         Write-Host "$Msg" -ForegroundColor Red
     } Elseif($Warning) {
         Write-Host "$Msg" -ForegroundColor Yellow
@@ -43,7 +39,7 @@ $RootDSE = Get-ADRootDSE
 $GuidNames = @{}
 
 $Guidmap = @{}
-Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidguid=*)' -Properties ldapdisplayname,schemaidguid | ForEach-Object { 
+Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidguid=*)' -Properties ldapdisplayname,schemaidguid | % { 
     $g = [guid] $_.SchemaIdGuid
     $n = $_.LdapDisplayName
 
@@ -52,7 +48,7 @@ Get-ADObject -SearchBase $($RootDSe.schemaNamingContext) -LDAPFilter '(schemaidg
 }
 
 $ExtendedRights = @{}
-Get-ADObject -SearchBase "CN=Extended-Rights,$($RootDSE.configurationNamingContext)" -LDAPFilter "(objectClass=controlAccessRight)" -Properties cn,appliesTo,rightsGuid | ForEach-Object {
+Get-ADObject -SearchBase "CN=Extended-Rights,$($RootDSE.configurationNamingContext)" -LDAPFilter "(objectClass=controlAccessRight)" -Properties cn,appliesTo,rightsGuid | % {
     $r = New-Object PSObject
     $r | Add-Member -MemberType NoteProperty -Name "Name" -Value $_.cn
     $r | Add-Member -MemberType NoteProperty -Name "AppliesTo" -Value $_.appliesTo
@@ -337,6 +333,32 @@ Function Set-AllowDelete {
     Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights DeleteChild -InheritanceType $Inheritance -ObjectType $ObjectType
 }
 
+Function Set-AllowFullControl {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN,
+
+        [string]
+        $ObjectLdapClassName,
+
+        [System.DirectoryServices.ActiveDirectorySecurityInheritance]
+        $Inheritance = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::None,
+
+        [Guid]
+        $InheritObjectType = [Guid]::Empty
+    )
+    
+    If(-Not $Guidmap.ContainsKey($ObjectLdapClassName)) {
+        Throw "Invalid class name: [$ObjectLdapClassName]"
+    }
+
+    $ObjectType = $Guidmap[$ObjectLdapClassName]
+    Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights GenericAll -InheritanceType $Inheritance -InheritObjectType $ObjectType
+}
+
 Function Set-OuAllowResetPw {
     Param(
         [string]
@@ -533,6 +555,115 @@ Function Set-ManageUsersDelegation {
 
     Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights ExtendedRight -ExtendedRight $ExRightMembership -PropertyAccess Read -InheritanceType $Inh -InheritObjectType $UserClassGuid
     Set-Delegation -ObjectDN $ObjectDN -SubjectDN $SubjectDN -RuleType Allow -Rights ExtendedRight -ExtendedRight $ExRightMembership -PropertyAccess Write -InheritanceType $Inh -InheritObjectType $UserClassGuid
+}
+
+Function Set-CreateUsersDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN,
+
+        [switch]
+        $Inherit
+    )
+
+    $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::None
+    If($Inherit) {
+        $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::All
+    }
+
+    # Allow Create & delete object type in OU and sub-OUs
+    Set-AllowCreate -ObjectDN $ObjectDN -SubjectDN $SubjectDN -ObjectLdapClassName "User" -Inheritance $Inh
+}
+
+Function Set-DeleteUsersDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN,
+
+        [switch]
+        $Inherit
+    )
+
+    $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::None
+    If($Inherit) {
+        $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::All
+    }
+
+    # Allow Create & delete object type in OU and sub-OUs
+    Set-AllowDelete -ObjectDN $ObjectDN -SubjectDN $SubjectDN -ObjectLdapClassName "User" -Inheritance $Inh
+}
+
+Function Set-FullControlUsersDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN
+    )
+
+    Set-AllowFullControl -ObjectDN $ObjectDN -SubjectDN $SubjectDN -Inheritance Descendents -ObjectLdapClassName "user"
+}
+
+
+Function Set-CreateGroupsDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN,
+
+        [switch]
+        $Inherit
+    )
+
+    $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::None
+    If($Inherit) {
+        $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::All
+    }
+
+    # Allow Create & delete object type in OU and sub-OUs
+    Set-AllowCreate -ObjectDN $ObjectDN -SubjectDN $SubjectDN -ObjectLdapClassName "Group" -Inheritance $Inh
+}
+
+Function Set-DeleteGroupsDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN,
+
+        [switch]
+        $Inherit
+    )
+
+    $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::None
+    If($Inherit) {
+        $Inh = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::All
+    }
+
+    # Allow Create & delete object type in OU and sub-OUs
+    Set-AllowDelete -ObjectDN $ObjectDN -SubjectDN $SubjectDN -ObjectLdapClassName "Group" -Inheritance $Inh
+}
+
+Function Set-FullControlGroupsDelegation {
+    Param(
+        [string]
+        $ObjectDN,
+
+        [string]
+        $SubjectDN
+    )
+
+    Set-AllowFullControl -ObjectDN $ObjectDN -SubjectDN $SubjectDN -Inheritance Descendents -ObjectLdapClassName "Group"
 }
 
 Function Set-FullControlDelegation {

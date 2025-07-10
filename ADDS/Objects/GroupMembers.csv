@@ -60,6 +60,7 @@ sqlagentsvc;Claim T1 ServiceAccount,Role T1 DB ServiceAccount
 websvc;Claim T1 ServiceAccount,Role T1 Web ServiceAccount
 iamsvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
 iamadcon;Claim T0 ServiceAccount
+iamadcon;Role T0 IDM AD Connector
 iamsqlsvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
 iamsqlassvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
 iamsqlissvc;Claim T0 ServiceAccount,Role T0 IDM ServiceAccount
@@ -90,6 +91,12 @@ Role T0 PKI ServiceAccount;Pm AD T0 Server PKI ServiceLogon
 Role T0 DB ServiceAccount;Pm AD T0 Server DB ServiceLogon
 Role T0 EDR ServiceAccount;Pm AD T0 Server EDR ServiceLogon
 Role T0 Monitoring ServiceAccount;Pm AD T0 Server Monitoring ServiceLogon
+
+Role T0 IDM AD Connector;Pm AD OrgUser Employee Create,Pm AD OrgUser Employee Delete,Pm AD OrgUser Employee FullControl,Pm AD OrgGroup Role Create,Pm AD OrgGroup Role Delete,Pm AD OrgGroup Role Manage,Pm AD OrgGroup Permission Create,Pm AD OrgGroup Permission Delete,Pm AD OrgGroup Permission Manage
+Role T0 IDM AD Connector;Pm AD T0 User ServiceAccount FullControl,Pm AD T0 User ServiceAccount Create,Pm AD T0 User ServiceAccount Delete,Pm AD T0 User Admin FullControl,Pm AD T0 User Admin Create,Pm AD T0 User Admin Delete,Pm AD T0 User User FullControl,Pm AD T0 User User Create,Pm AD T0 User User Delete
+Role T0 IDM AD Connector;Pm AD T0 Group Role FullControl,Pm AD T0 Group Role Create,Pm AD T0 Group Role Delete,Pm AD T0 Group Permission FullControl,Pm AD T0 Group Permission Create,Pm AD T0 Group Permission Delete,Pm AD T0 Group Claim FullControl,Pm AD T0 Group Claim Create,Pm AD T0 Group Claim Delete,Pm AD T0 Group AMA Create,Pm AD T0 Group AMA Delete
+Role T0 IDM AD Connector;Pm AD T1 User ServiceAccount FullControl,Pm AD T1 User ServiceAccount Create,Pm AD T1 User ServiceAccount Delete,Pm AD T1 User Admin FullControl,Pm AD T1 User Admin Create,Pm AD T1 User Admin Delete,Pm AD T1 User User FullControl,Pm AD T1 User User Create,Pm AD T1 User User Delete
+Role T0 IDM AD Connector;Pm AD T1 Group Role FullControl,Pm AD T1 Group Role Create,Pm AD T1 Group Role Delete,Pm AD T1 Group Permission FullControl,Pm AD T1 Group Permission Create,Pm AD T1 Group Permission Delete
 
 Pm AD T0 Device PAW LocalAdmin;Pm AD T0 Device PAW InteractiveLogon,Pm AD T0 Device PAW RdpLogon
 Pm AD T0 Server AD SAW LocalAdmin;Pm AD T0 Server AD SAW InteractiveLogon,Pm AD T0 Server AD SAW RdpLogon,Pm AD T0 Server AD SAW LapsReadPwd,Pm AD T0 Server AD SAW LapsResetPwd,Pm AD T0 Server AD SAW LapsDecryptPwd
