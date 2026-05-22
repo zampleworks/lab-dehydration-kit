@@ -73,5 +73,3 @@ Get-ADObject -filter * -SearchBase $DomainNc -SearchScope Subtree | ForEach-Obje
     }
 }
 
-Write-Host "Emptying Pre-Windows 2000 Compatible Access group"
-Set-ADGroup "Pre-Windows 2000 Compatible Access" -Clear "member" -Confirm:$false

@@ -8,6 +8,9 @@ Parent;Name;CN;DisplayName;Created
 %OrgGroupsOU%;OrgPermissionsOU;Permissions;Permissions;false
 %OrgComputersOU%;OrgClientsOU;Clients;Clients;false
 
+%RootDN%;NewUsersOU;NewUsers;NewUsers;false
+%RootDN%;NewComputersOU;NewComputers;NewComputers;false
+
 %RootDN%;OperationsRootOU;OperationsControl;OperationsControl;false
 %OperationsRootOU%;T1OU;T1;T1;false
 %T1OU%;T1GroupsOU;Groups;Groups;false

@@ -176,6 +176,14 @@ Try {
     Write-Host "Removing delegations to built-in principals on new objects.."
     .\Reset-BuiltinDelegation.ps1 -Verbose
 
+    Write-Progress -Activity "Creating AD Contents" -Status "Emptying Pre-Windows 2000 Compatible Access group"
+    Write-Host "Emptying Pre-Windows 2000 Compatible Access group"
+    Set-ADGroup "Pre-Windows 2000 Compatible Access" -Clear "member" -Confirm:$false
+    Set-ADGroup "Account Operators" -Clear "AdminCount"
+    Set-ADGroup "Print Operators" -Clear "AdminCount"
+    Set-ADGroup "Backup Operators" -Clear "AdminCount"
+    Set-ADGroup "Server Operators" -Clear "AdminCount"
+
     Write-Progress -Activity "AD Configuration" -Status "Setting NTDS and Netlogon ports"
     Write-Host "Setting NTDS and Netlogon ports.."
 
