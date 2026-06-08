@@ -1,0 +1,13 @@
+AppName;Tier;HasSaw;HasAma;HasAuthPolicy;ServerGpoBackup;SawGpoBackup
+DS;T0;true;true;true;T0 SoD DS Servers;T0 SoD DS SAW
+PKI;T0;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+IGA;T0;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+EDR;T0;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+Monitoring;T0;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+DB;T0;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+DB;T1;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+EDR;T1;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+Monitoring;T1;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+SAP;T1;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+Sharepoint;T1;true;true;true;T0 SoD DB Servers;T0 SoD DB SAW
+Web;T1;true;false;true;T0 SoD DB Servers;T0 SoD DB SAW

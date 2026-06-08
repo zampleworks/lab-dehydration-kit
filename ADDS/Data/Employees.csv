@@ -1,0 +1,292 @@
+BusinessEntityID;Samaccountname;FirstName;MiddleName;LastName;Initials;Department;Division;Position;Manager;EmailDomain
+1;kensanc;Ken;J;Sánchez;KJS;Executive;Executive General and Administration;Chief Executive Officer;
+2;terrduff;Terri;Lee;Duffy;TLD;Engineering;Research and Development;Vice President of Engineering;kensanc
+3;robetamb;Roberto;;Tamburello;RT;Engineering;Research and Development;Engineering Manager;terrduff
+4;robwalt;Rob;;Walters;RW;Tool Design;Research and Development;Senior Tool Designer;robetamb
+5;gaileric;Gail;A;Erickson;GAE;Engineering;Research and Development;Design Engineer;robetamb
+6;jossgold;Jossef;H;Goldberg;JHG;Engineering;Research and Development;Design Engineer;robetamb
+7;dylamill;Dylan;A;Miller;DAM;Research and Development;Research and Development;Research and Development Manager;robetamb
+8;dianmarg;Diane;L;Margheim;DLM;Research and Development;Research and Development;Research and Development Engineer;dylamill
+9;gigimatt;Gigi;N;Matthew;GNM;Research and Development;Research and Development;Research and Development Engineer;dylamill
+10;michrahe;Michael;;Raheem;MR;Research and Development;Research and Development;Research and Development Manager;dylamill
+11;ovidcrac;Ovidiu;V;Cracium;OVC;Tool Design;Research and Development;Senior Tool Designer;robetamb
+12;thiedher;Thierry;B;D'Hers;TBD;Tool Design;Research and Development;Tool Designer;ovidcrac
+13;janigalv;Janice;M;Galvin;JMG;Tool Design;Research and Development;Tool Designer;ovidcrac
+14;michsull;Michael;I;Sullivan;MIS;Engineering;Research and Development;Senior Design Engineer;robetamb
+15;sharsala;Sharon;B;Salavaria;SBS;Engineering;Research and Development;Design Engineer;robetamb
+16;davibrad;David;M;Bradley;DMB;Marketing;Sales and Marketing;Marketing Manager;kensanc
+17;kevibrow;Kevin;F;Brown;KFB;Marketing;Sales and Marketing;Marketing Assistant;davibrad
+18;johnwood;John;L;Wood;JLW;Marketing;Sales and Marketing;Marketing Specialist;davibrad
+19;marydemp;Mary;A;Dempsey;MAD;Marketing;Sales and Marketing;Marketing Assistant;davibrad
+20;wanibens;Wanida;M;Benshoof;WMB;Marketing;Sales and Marketing;Marketing Assistant;davibrad
+21;terremin;Terry;J;Eminhizer;TJE;Marketing;Sales and Marketing;Marketing Specialist;davibrad
+22;sariharn;Sariya;E;Harnpadoungsataya;SEH;Marketing;Sales and Marketing;Marketing Specialist;davibrad
+23;marygibs;Mary;E;Gibson;MEG;Marketing;Sales and Marketing;Marketing Specialist;davibrad
+24;jillwill;Jill;A;Williams;JAW;Marketing;Sales and Marketing;Marketing Specialist;davibrad
+25;jamehami;James;R;Hamilton;JRH;Production;Manufacturing;Vice President of Production;kensanc
+26;petekreb;Peter;J;Krebs;PJK;Production Control;Manufacturing;Production Control Manager;jamehami
+27;jobrow;Jo;A;Brown;JAB;Production;Manufacturing;Production Supervisor - WC60;petekreb
+28;guygilb;Guy;R;Gilbert;GRG;Production;Manufacturing;Production Technician - WC60;jobrow
+29;markmcar;Mark;K;McArthur;MKM;Production;Manufacturing;Production Technician - WC60;jobrow
+30;britsimo;Britta;L;Simon;BLS;Production;Manufacturing;Production Technician - WC60;jobrow
+31;margshoo;Margie;W;Shoop;MWS;Production;Manufacturing;Production Technician - WC60;jobrow
+32;rebelasz;Rebecca;A;Laszlo;RAL;Production;Manufacturing;Production Technician - WC60;jobrow
+33;annistah;Annika;O;Stahl;AOS;Production;Manufacturing;Production Technician - WC60;jobrow
+34;suchmoha;Suchitra;O;Mohan;SOM;Production;Manufacturing;Production Technician - WC60;jobrow
+35;branheid;Brandon;G;Heidepriem;BGH;Production;Manufacturing;Production Technician - WC60;jobrow
+36;joselugo;Jose;R;Lugo;JRL;Production;Manufacturing;Production Technician - WC60;jobrow
+37;chriokel;Chris;O;Okelberry;COO;Production;Manufacturing;Production Technician - WC60;jobrow
+38;kimaber;Kim;B;Abercrombie;KBA;Production;Manufacturing;Production Technician - WC60;jobrow
+39;eddude;Ed;R;Dudenhoefer;ERD;Production;Manufacturing;Production Technician - WC60;jobrow
+40;jolydobn;JoLynn;M;Dobney;JMD;Production;Manufacturing;Production Supervisor - WC60;petekreb
+41;bryabake;Bryan;;Baker;BB;Production;Manufacturing;Production Technician - WC60;jolydobn
+42;jamekram;James;D;Kramer;JDK;Production;Manufacturing;Production Technician - WC60;jolydobn
+43;nancande;Nancy;A;Anderson;NAA;Production;Manufacturing;Production Technician - WC60;jolydobn
+44;simorapi;Simon;D;Rapier;SDR;Production;Manufacturing;Production Technician - WC60;jolydobn
+45;thommich;Thomas;R;Michaels;TRM;Production;Manufacturing;Production Technician - WC60;jolydobn
+46;eugekoga;Eugene;O;Kogan;EOK;Production;Manufacturing;Production Technician - WC60;jolydobn
+47;andrhill;Andrew;R;Hill;ARH;Production;Manufacturing;Production Supervisor - WC10;petekreb
+48;ruthelle;Ruth;Ann;Ellerbrock;RAE;Production;Manufacturing;Production Technician - WC10;andrhill
+49;barrjohn;Barry;K;Johnson;BKJ;Production;Manufacturing;Production Technician - WC10;andrhill
+50;sidnhiga;Sidney;M;Higa;SMH;Production;Manufacturing;Production Technician - WC10;andrhill
+51;jeffford;Jeffrey;L;Ford;JLF;Production;Manufacturing;Production Technician - WC10;andrhill
+52;dorihart;Doris;M;Hartwig;DMH;Production;Manufacturing;Production Technician - WC10;andrhill
+53;dianglim;Diane;R;Glimp;DRG;Production;Manufacturing;Production Technician - WC10;andrhill
+54;bonnkear;Bonnie;N;Kearney;BNK;Production;Manufacturing;Production Technician - WC10;andrhill
+55;taylmaxw;Taylor;R;Maxwell;TRM;Production;Manufacturing;Production Supervisor - WC50;petekreb
+56;denismit;Denise;H;Smith;DHS;Production;Manufacturing;Production Technician - WC50;taylmaxw
+57;franmill;Frank;T;Miller;FTM;Production;Manufacturing;Production Technician - WC50;taylmaxw
+58;kendkeil;Kendall;C;Keil;KCK;Production;Manufacturing;Production Technician - WC50;taylmaxw
+59;bobhohm;Bob;N;Hohman;BNH;Production;Manufacturing;Production Technician - WC50;taylmaxw
+60;petemale;Pete;C;Male;PCM;Production;Manufacturing;Production Technician - WC50;taylmaxw
+61;diantibb;Diane;H;Tibbott;DHT;Production;Manufacturing;Production Technician - WC50;taylmaxw
+62;johncamp;John;T;Campbell;JTC;Production;Manufacturing;Production Supervisor - WC60;petekreb
+63;macidusz;Maciej;W;Dusza;MWD;Production;Manufacturing;Production Technician - WC60;johncamp
+64;michzwil;Michael;J;Zwilling;MJZ;Production;Manufacturing;Production Technician - WC60;johncamp
+65;randreev;Randy;T;Reeves;RTR;Production;Manufacturing;Production Technician - WC60;johncamp
+66;karakhan;Karan;R;Khanna;KRK;Production;Manufacturing;Production Technician - WC60;johncamp
+67;jayadam;Jay;G;Adams;JGA;Production;Manufacturing;Production Technician - WC60;johncamp
+68;charfitz;Charles;B;Fitzgerald;CBF;Production;Manufacturing;Production Technician - WC60;johncamp
+69;stevmast;Steve;F;Masters;SFM;Production;Manufacturing;Production Technician - WC60;johncamp
+70;daviorti;David;J;Ortiz;DJO;Production;Manufacturing;Production Technician - WC60;johncamp
+71;michray;Michael;Sean;Ray;MSR;Production;Manufacturing;Production Supervisor - WC30;petekreb
+72;stevseli;Steven;T;Selikoff;STS;Production;Manufacturing;Production Technician - WC30;michray
+73;caropola;Carole;M;Poland;CMP;Production;Manufacturing;Production Technician - WC30;michray
+74;bjorrett;Bjorn;M;Rettig;BMR;Production;Manufacturing;Production Technician - WC30;michray
+75;michosad;Michiko;F;Osada;MFO;Production;Manufacturing;Production Technician - WC30;michray
+76;carophil;Carol;M;Philips;CMP;Production;Manufacturing;Production Technician - WC30;michray
+77;meranetz;Merav;A;Netz;MAN;Production;Manufacturing;Production Technician - WC30;michray
+78;reubdsa;Reuben;H;D'sa;RHD;Production;Manufacturing;Production Supervisor - WC40;petekreb
+79;ericbrow;Eric;L;Brown;ELB;Production;Manufacturing;Production Technician - WC40;reubdsa
+80;sandkali;Sandeep;P;Kaliyath;SPK;Production;Manufacturing;Production Technician - WC40;reubdsa
+81;mihafrin;Mihail;U;Frintu;MUF;Production;Manufacturing;Production Technician - WC40;reubdsa
+82;jackcrea;Jack;T;Creasey;JTC;Production;Manufacturing;Production Technician - WC40;reubdsa
+83;patrcook;Patrick;M;Cook;PMC;Production;Manufacturing;Production Technician - WC40;reubdsa
+84;franmart;Frank;R;Martinez;FRM;Production;Manufacturing;Production Technician - WC40;reubdsa
+85;briagold;Brian;Richard;Goldstein;BRG;Production;Manufacturing;Production Technician - WC40;reubdsa
+86;ryancorn;Ryan;L;Cornelsen;RLC;Production;Manufacturing;Production Technician - WC40;reubdsa
+87;crispetc;Cristian;K;Petculescu;CKP;Production;Manufacturing;Production Supervisor - WC10;petekreb
+88;betsstad;Betsy;A;Stadick;BAS;Technical Services;IT Director Office;Senior Systems Administrator;crispetc
+89;patrwedg;Patrick;C;Wedge;PCW;Production;Manufacturing;Production Technician - WC10;crispetc
+90;danitied;Danielle;C;Tiedt;DCT;Production;Manufacturing;Production Technician - WC10;crispetc
+91;kimbzimm;Kimberly;B;Zimmerman;KBZ;Production;Manufacturing;Production Technician - WC10;crispetc
+92;tomvand;Tom;M;Vande Velde;TMV;Production;Manufacturing;Production Technician - WC10;crispetc
+93;kokhloh;Kok-Ho;T;Loh;KTL;Production;Manufacturing;Production Supervisor - WC50;petekreb
+94;russhunt;Russell;;Hunter;RH;Production;Manufacturing;Production Technician - WC50;kokhloh
+95;jimscar;Jim;H;Scardelis;JHS;Production;Manufacturing;Production Technician - WC50;kokhloh
+96;elizkeys;Elizabeth;I;Keyser;EIK;Production;Manufacturing;Production Technician - WC50;kokhloh
+97;mandsama;Mandar;H;Samant;MHS;Production;Manufacturing;Production Technician - WC50;kokhloh
+98;sameteja;Sameer;A;Tejani;SAT;Production;Manufacturing;Production Technician - WC50;kokhloh
+99;nuanyu;Nuan;;Yu;NY;Production;Manufacturing;Production Technician - WC50;kokhloh
+100;lolasong;Lolan;B;Song;LBS;Production;Manufacturing;Production Technician - WC50;kokhloh
+101;houmpour;Houman;N;Pournasseh;HNP;Production;Manufacturing;Production Technician - WC50;kokhloh
+102;zhenmu;Zheng;W;Mu;ZWM;Technical Services;IT Director Office;Senior Systems Administrator;petekreb
+103;ebruersa;Ebru;N;Ersan;ENE;Technical Services;IT Director Office;Senior Systems Administrator;zhenmu
+104;marybake;Mary;R;Baker;MRB;Technical Services;IT Director Office;Senior Systems Administrator;zhenmu
+105;kevihome;Kevin;M;Homer;KMH;Technical Services;IT Director Office;Senior Systems Administrator;zhenmu
+106;johnkane;John;T;Kane;JTK;Technical Services;IT Director Office;Senior Systems Administrator;zhenmu
+107;chrihill;Christopher;E;Hill;CEH;Production;Manufacturing;Production Technician - WC10;zhenmu
+108;jingliu;Jinghao;K;Liu;JKL;Production;Manufacturing;Production Supervisor - WC50;petekreb
+109;aliccicc;Alice;O;Ciccu;AOC;Production;Manufacturing;Production Technician - WC50;jingliu
+110;juncao;Jun;T;Cao;JTC;Production;Manufacturing;Production Technician - WC50;jingliu
+111;surofati;Suroor;R;Fatima;SRF;Production;Manufacturing;Production Technician - WC50;jingliu
+112;johnevan;John;P;Evans;JPE;Production;Manufacturing;Production Technician - WC50;jingliu
+113;lindmosc;Linda;K;Moschell;LKM;Production;Manufacturing;Production Technician - WC50;jingliu
+114;mindkrap;Mindaugas;J;Krapauskas;MJK;Production;Manufacturing;Production Technician - WC50;jingliu
+115;angebarb;Angela;W;Barbariol;AWB;Production;Manufacturing;Production Technician - WC50;jingliu
+116;michpatt;Michael;W;Patten;MWP;Production;Manufacturing;Production Technician - WC50;jingliu
+117;chadnisw;Chad;W;Niswonger;CWN;Production;Manufacturing;Production Technician - WC50;jingliu
+118;donhall;Don;L;Hall;DLH;Production;Manufacturing;Production Technician - WC50;jingliu
+119;michenti;Michael;T;Entin;MTE;Production;Manufacturing;Production Technician - WC50;jingliu
+120;kittlert;Kitti;H;Lertpiriyasuwat;KHL;Production;Manufacturing;Production Technician - WC50;jingliu
+121;pilaacke;Pilar;G;Ackerman;PGA;Shipping and Receiving;Inventory Management;Shipping and Receiving Supervisor;petekreb
+122;susaeato;Susan;W;Eaton;SWE;Shipping and Receiving;Inventory Management;Stocker;pilaacke
+123;vamskupp;Vamsi;N;Kuppa;VNK;Shipping and Receiving;Inventory Management;Shipping and Receiving Clerk;pilaacke
+124;kimrall;Kim;T;Ralls;KTR;Shipping and Receiving;Inventory Management;Stocker;pilaacke
+125;mattbern;Matthias;T;Berndt;MTB;Shipping and Receiving;Inventory Management;Shipping and Receiving Clerk;pilaacke
+126;jimmbisc;Jimmy;T;Bischoff;JTB;Shipping and Receiving;Inventory Management;Stocker;pilaacke
+127;davihami;David;P;Hamilton;DPH;Production;Manufacturing;Production Supervisor - WC40;petekreb
+128;paulkomo;Paul;B;Komosinski;PBK;Production;Manufacturing;Production Technician - WC40;davihami
+129;garyyuki;Gary;W;Yukish;GWY;Production;Manufacturing;Production Technician - WC40;davihami
+130;robcaro;Rob;T;Caron;RTC;Production;Manufacturing;Production Technician - WC40;davihami
+131;bariceti;Baris;F;Cetinok;BFC;Production;Manufacturing;Production Technician - WC40;davihami
+132;nicoholl;Nicole;B;Holliday;NBH;Production;Manufacturing;Production Technician - WC40;davihami
+133;michroth;Michael;L;Rothkugel;MLR;Production;Manufacturing;Production Technician - WC40;davihami
+134;ericgubb;Eric;;Gubbels;EG;Production;Manufacturing;Production Supervisor - WC20;petekreb
+135;ivosalm;Ivo;William;Salmre;IWS;Production;Manufacturing;Production Technician - WC20;ericgubb
+136;sylvvald;Sylvester;A;Valdez;SAV;Production;Manufacturing;Production Technician - WC20;ericgubb
+137;anibsous;Anibal;T;Sousa;ATS;Production;Manufacturing;Production Technician - WC20;ericgubb
+138;samasmit;Samantha;H;Smith;SHS;Technical Services;IT Director Office;Senior Systems Administrator;ericgubb
+139;hungting;Hung-Fu;T;Ting;HTT;Technical Services;IT Director Office;Senior Systems Administrator;ericgubb
+140;prassama;Prasanna;E;Samarawickrama;PES;Technical Services;IT Director Office;Senior Systems Administrator;ericgubb
+141;minsu;Min;G;Su;MGS;Production;Manufacturing;Production Technician - WC20;ericgubb
+142;olinturn;Olinda;C;Turner;OCT;Production;Manufacturing;Production Technician - WC20;ericgubb
+143;krissunk;Krishna;;Sunkammurali;KS;Production;Manufacturing;Production Technician - WC20;ericgubb
+144;paulsing;Paul;R;Singh;PRS;Production;Manufacturing;Production Technician - WC20;ericgubb
+145;cyntrand;Cynthia;S;Randall;CSR;Production;Manufacturing;Production Supervisor - WC30;petekreb
+146;jianwang;Jian Shuo;;Wang;JW;Production;Manufacturing;Production Technician - WC30;cyntrand
+147;sandreat;Sandra;;Reátegui Alayo;SR;Production;Manufacturing;Production Technician - WC30;cyntrand
+148;jasowatt;Jason;M;Watters;JMW;Production;Manufacturing;Production Technician - WC30;cyntrand
+149;andyruth;Andy;M;Ruth;AMR;Production;Manufacturing;Production Technician - WC30;cyntrand
+150;michvand;Michael;T;Vanderhyde;MTV;Production;Manufacturing;Production Technician - WC30;cyntrand
+151;rostshab;Rostislav;E;Shabalin;RES;Production;Manufacturing;Production Technician - WC30;cyntrand
+152;yuholi;Yuhong;L;Li;YLL;Production;Manufacturing;Production Supervisor - WC20;petekreb
+153;hanyfeng;Hanying;P;Feng;HPF;Production;Manufacturing;Production Technician - WC20;yuholi
+154;raymsam;Raymond;K;Sam;RKS;Production;Manufacturing;Production Technician - WC20;yuholi
+155;fadifakh;Fadi;K;Fakhouri;FKF;Production;Manufacturing;Production Technician - WC20;yuholi
+156;lanesack;Lane;M;Sacksteder;LMS;Production;Manufacturing;Production Technician - WC20;yuholi
+157;lindrand;Linda;A;Randall;LAR;Production;Manufacturing;Production Technician - WC20;yuholi
+158;sheldyck;Shelley;N;Dyck;SND;Production;Manufacturing;Production Technician - WC20;yuholi
+159;terrearl;Terrence;W;Earls;TWE;Production;Manufacturing;Production Technician - WC20;yuholi
+160;jeffhay;Jeff;V;Hay;JVH;Production;Manufacturing;Production Supervisor - WC45;petekreb
+161;kirkkoen;Kirk;J;Koenigsbauer;KJK;Production;Manufacturing;Production Technician - WC45;jeffhay
+162;laurstee;Laura;C;Steele;LCS;Production;Manufacturing;Production Technician - WC45;jeffhay
+163;alexnayb;Alex;M;Nayberg;AMN;Production;Manufacturing;Production Technician - WC45;jeffhay
+164;andrcenc;Andrew;M;Cencini;AMC;Production;Manufacturing;Production Technician - WC45;jeffhay
+165;chripres;Chris;T;Preston;CTP;Production;Manufacturing;Production Technician - WC45;jeffhay
+166;jackrich;Jack;S;Richins;JSR;Production;Manufacturing;Production Supervisor - WC30;petekreb
+167;davijohn;David;N;Johnson;DNJ;Production;Manufacturing;Production Technician - WC30;jackrich
+168;garryoun;Garrett;R;Young;GRY;Production;Manufacturing;Production Technician - WC30;jackrich
+169;susamett;Susan;A;Metters;SAM;Production;Manufacturing;Production Technician - WC30;jackrich
+170;georli;George;Z;Li;GZL;Production;Manufacturing;Production Technician - WC30;jackrich
+171;daviyalo;David;A;Yalovsky;DAY;Production;Manufacturing;Production Technician - WC30;jackrich
+172;marcingl;Marc;J;Ingle;MJI;Production;Manufacturing;Production Technician - WC30;jackrich
+173;eugezabo;Eugene;R;Zabokritski;ERZ;Production;Manufacturing;Production Technician - WC30;jackrich
+174;benjmart;Benjamin;R;Martin;BRM;Production;Manufacturing;Production Technician - WC30;jackrich
+175;reedkoch;Reed;T;Koch;RTK;Production;Manufacturing;Production Technician - WC30;jackrich
+176;davilawr;David;Oliver;Lawrence;DOL;Production;Manufacturing;Production Technician - WC30;jackrich
+177;russking;Russell;M;King;RMK;Production;Manufacturing;Production Technician - WC30;jackrich
+178;johnfrum;John;N;Frum;JNF;Production;Manufacturing;Production Technician - WC30;jackrich
+179;janmiks;Jan;S;Miksovsky;JSM;Production;Manufacturing;Production Technician - WC30;jackrich
+180;katimcas;Katie;L;McAskill-White;KLM;Production;Manufacturing;Production Supervisor - WC20;petekreb
+181;michhine;Michael;T;Hines;MTH;Production;Manufacturing;Production Technician - WC20;katimcas
+182;nitimirc;Nitin;S;Mirchandani;NSM;Production;Manufacturing;Production Technician - WC20;katimcas
+183;barbdeck;Barbara;S;Decker;BSD;Production;Manufacturing;Production Technician - WC20;katimcas
+184;johnchen;John;Y;Chen;JYC;Production;Manufacturing;Production Technician - WC20;katimcas
+185;stefhess;Stefen;A;Hesse;SAH;Production;Manufacturing;Production Technician - WC20;katimcas
+186;shankim;Shane;S;Kim;SSK;Production;Manufacturing;Production Supervisor - WC45;petekreb
+187;yvonmcka;Yvonne;S;McKay;YSM;Production;Manufacturing;Production Technician - WC45;shankim
+188;doughite;Douglas;B;Hite;DBH;Production;Manufacturing;Production Technician - WC45;shankim
+189;janeeste;Janeth;M;Esteves;JME;Production;Manufacturing;Production Technician - WC45;shankim
+190;roberoun;Robert;J;Rounthwaite;RJR;Production;Manufacturing;Production Technician - WC45;shankim
+191;lionpenu;Lionel;C;Penuchot;LCP;Production;Manufacturing;Production Technician - WC45;shankim
+192;brendiaz;Brenda;M;Diaz;BMD;Production;Manufacturing;Production Supervisor - WC40;petekreb
+193;alejmcgu;Alejandro;E;McGuel;AEM;Production;Manufacturing;Production Technician - WC40;brendiaz
+194;frednort;Fred;T;Northup;FTN;Production;Manufacturing;Production Technician - WC40;brendiaz
+195;keviliu;Kevin;H;Liu;KHL;Production;Manufacturing;Production Technician - WC40;brendiaz
+196;shammoha;Shammi;G;Mohamed;SGM;Production;Manufacturing;Production Technician - WC40;brendiaz
+197;rajepate;Rajesh;M;Patel;RMP;Production;Manufacturing;Production Technician - WC40;brendiaz
+198;lorrnay;Lorraine;O;Nay;LON;Production;Manufacturing;Production Technician - WC40;brendiaz
+199;paulnart;Paula;R;Nartker;PRN;Production;Manufacturing;Production Technician - WC40;brendiaz
+200;franlee;Frank;T;Lee;FTL;Production;Manufacturing;Production Technician - WC40;brendiaz
+201;brialloy;Brian;T;Lloyd;BTL;Production;Manufacturing;Production Technician - WC40;brendiaz
+202;tawanusb;Tawana;G;Nusbaum;TGN;Production;Manufacturing;Production Technician - WC40;brendiaz
+203;kenmyer;Ken;L;Myer;KLM;Production;Manufacturing;Production Technician - WC40;brendiaz
+204;gabemare;Gabe;B;Mares;GBM;Production;Manufacturing;Production Technician - WC40;brendiaz
+205;lorikane;Lori;A;Kane;LAK;Production;Manufacturing;Production Supervisor - WC45;petekreb
+206;stuamuns;Stuart;V;Munson;SVM;Production;Manufacturing;Production Technician - WC45;lorikane
+207;gregalde;Greg;F;Alderson;GFA;Production;Manufacturing;Production Technician - WC45;lorikane
+208;scotgode;Scott;R;Gode;SRG;Production;Manufacturing;Production Technician - WC45;lorikane
+209;kathfloo;Kathie;E;Flood;KEF;Production;Manufacturing;Production Technician - WC45;lorikane
+210;belinewm;Belinda;M;Newman;BMN;Production;Manufacturing;Production Technician - WC45;lorikane
+211;hazeabol;Hazem;E;Abolrous;HEA;Quality Assurance;Quality Assurance;Quality Assurance Manager;jamehami
+212;pengwu;Peng;J;Wu;PJW;Quality Assurance;Quality Assurance;Quality Assurance Supervisor;hazeabol
+213;sootchar;Sootha;T;Charncherngkha;STC;Quality Assurance;Quality Assurance;Quality Assurance Technician;pengwu
+214;andrberg;Andreas;T;Berglund;ATB;Quality Assurance;Quality Assurance;Quality Assurance Technician;pengwu
+215;markharr;Mark;L;Harrington;MLH;Quality Assurance;Quality Assurance;Quality Assurance Technician;pengwu
+216;seanalex;Sean;P;Alexander;SPA;Quality Assurance;Quality Assurance;Quality Assurance Technician;pengwu
+217;zainarif;Zainal;T;Arifin;ZTA;Document Control;Quality Assurance;Document Control Manager;hazeabol
+218;tengkhar;Tengiz;N;Kharatishvili;TNK;Document Control;Quality Assurance;Control Specialist;zainarif
+219;seanchai;Sean;N;Chai;SNC;Document Control;Quality Assurance;Document Control Assistant;zainarif
+220;kareberg;Karen;R;Berge;KRB;Document Control;Quality Assurance;Document Control Assistant;zainarif
+221;chrinorr;Chris;K;Norred;CKN;Document Control;Quality Assurance;Control Specialist;zainarif
+222;ascowrig;A. Scott;;Wright;AW;Production Control;Manufacturing;Master Scheduler;jamehami
+223;sairuddi;Sairaj;L;Uddin;SLU;Production Control;Manufacturing;Scheduling Assistant;ascowrig
+224;willvong;William;S;Vong;WSV;Production Control;Manufacturing;Scheduling Assistant;ascowrig
+225;alanbrew;Alan;J;Brewer;AJB;Production Control;Manufacturing;Scheduling Assistant;ascowrig
+226;brialame;Brian;P;LaMee;BPL;Production Control;Manufacturing;Scheduling Assistant;ascowrig
+227;garyaltm;Gary;E.;Altman;GEA;Facilities and Maintenance;Executive General and Administration;Facilities Manager;jamehami
+228;chriklei;Christian;E;Kleinerman;CEK;Facilities and Maintenance;Executive General and Administration;Maintenance Supervisor;garyaltm
+229;loripeno;Lori;K;Penor;LKP;Facilities and Maintenance;Executive General and Administration;Janitor;chriklei
+230;stuamacr;Stuart;J;Macrae;SJM;Facilities and Maintenance;Executive General and Administration;Janitor;chriklei
+231;joberr;Jo;L;Berry;JLB;Facilities and Maintenance;Executive General and Administration;Janitor;chriklei
+232;patcole;Pat;H;Coleman;PHC;Facilities and Maintenance;Executive General and Administration;Janitor;chriklei
+233;magnhedl;Magnus;E;Hedlund;MEH;Facilities and Maintenance;Executive General and Administration;Facilities Administrative Assistant;garyaltm
+234;laurnorm;Laura;F;Norman;LFN;Executive;Executive General and Administration;Chief Financial Officer;kensanc
+235;paulbarr;Paula;M;Barreto de Mattos;PMB;Human Resources;Executive General and Administration;Human Resources Manager;laurnorm
+236;granculb;Grant;N;Culbertson;GNC;Human Resources;Executive General and Administration;Human Resources Administrative Assistant;paulbarr
+237;haochen;Hao;O;Chen;HOC;Human Resources;Executive General and Administration;Human Resources Administrative Assistant;paulbarr
+238;viduluth;Vidur;X;Luthra;VXL;Human Resources;Executive General and Administration;Recruiter;paulbarr
+239;mindmart;Mindy;C;Martin;MCM;Human Resources;Executive General and Administration;Benefits Specialist;paulbarr
+240;willjohn;Willis;T;Johnson;WTJ;Human Resources;Executive General and Administration;Recruiter;paulbarr
+241;daviliu;David;J;Liu;DJL;Finance;Executive General and Administration;Accounts Manager;laurnorm
+242;debopoe;Deborah;E;Poe;DEP;Finance;Executive General and Administration;Accounts Receivable Specialist;daviliu
+243;candspoo;Candy;L;Spoon;CLS;Finance;Executive General and Administration;Accounts Receivable Specialist;daviliu
+244;bryawalt;Bryan;A;Walton;BAW;Finance;Executive General and Administration;Accounts Receivable Specialist;daviliu
+245;barbmore;Barbara;C;Moreland;BCM;Finance;Executive General and Administration;Accountant;daviliu
+246;dragtomi;Dragan;K;Tomic;DKT;Finance;Executive General and Administration;Accounts Payable Specialist;daviliu
+247;janeshep;Janet;L;Sheperdigian;JLS;Finance;Executive General and Administration;Accounts Payable Specialist;daviliu
+248;mikeseam;Mike;K;Seamans;MKS;Finance;Executive General and Administration;Accountant;daviliu
+249;wendkahn;Wendy;Beth;Kahn;WBK;Finance;Executive General and Administration;Finance Manager;laurnorm
+250;sheeword;Sheela;H;Word;SHW;Purchasing;Inventory Management;Purchasing Manager;wendkahn
+251;mikasand;Mikael;Q;Sandberg;MQS;Purchasing;Inventory Management;Buyer;sheeword
+252;arvirao;Arvind;B;Rao;ABR;Purchasing;Inventory Management;Buyer;sheeword
+253;lindmeis;Linda;P;Meisner;LPM;Purchasing;Inventory Management;Buyer;sheeword
+254;fukiogis;Fukiko;J;Ogisu;FJO;Purchasing;Inventory Management;Buyer;sheeword
+255;gordhee;Gordon;L;Hee;GLH;Purchasing;Inventory Management;Buyer;sheeword
+256;franpell;Frank;S;Pellow;FSP;Purchasing;Inventory Management;Buyer;sheeword
+257;erickurj;Eric;S;Kurjan;ESK;Purchasing;Inventory Management;Buyer;sheeword
+258;erinhage;Erin;M;Hagens;EMH;Purchasing;Inventory Management;Buyer;sheeword
+259;benmill;Ben;T;Miller;BTM;Purchasing;Inventory Management;Buyer;sheeword
+260;annehill;Annette;L;Hill;ALH;Purchasing;Inventory Management;Purchasing Assistant;sheeword
+261;reinhill;Reinout;N;Hillmann;RNH;Purchasing;Inventory Management;Purchasing Assistant;sheeword
+262;davibarb;David;M;Barber;DMB;Finance;Executive General and Administration;Assistant to the Chief Financial Officer;laurnorm
+263;jeantren;Jean;E;Trenary;JET;Information Services;CISO Office;Information Services Manager;kensanc
+264;stepconr;Stephanie;A;Conroy;SAC;Information Services;CISO Office;Network Manager;jeantren
+265;ashvshar;Ashvini;R;Sharma;ARS;Information Services;CISO Office;Network Administrator;stepconr
+266;peteconn;Peter;I;Connelly;PIC;Information Services;CISO Office;Network Administrator;stepconr
+267;kareberg1;Karen;A;Berg;KAB;Information Services;CISO Office;Application Specialist;jeantren
+268;ramemeyy;Ramesh;V;Meyyappan;RVM;Information Services;CISO Office;Application Specialist;jeantren
+269;danbaco;Dan;K;Bacon;DKB;Information Services;CISO Office;Application Specialist;jeantren
+270;franajen;François;P;Ajenstat;FPA;Information Services;CISO Office;Database Administrator;jeantren
+271;danwils;Dan;B;Wilson;DBW;Information Services;CISO Office;Database Administrator;jeantren
+272;janabuen;Janaina;Barreiro Gambaro;Bueno;JBGB;Information Services;CISO Office;Application Specialist;jeantren
+273;briawelc;Brian;S;Welcker;BSW;Sales;Sales and Marketing;Vice President of Sales;kensanc
+274;stepjian;Stephen;Y;Jiang;SYJ;Sales;Sales and Marketing;North American Sales Manager;briawelc
+275;michblyt;Michael;G;Blythe;MGB;Sales;Sales and Marketing;Sales Representative;stepjian
+276;lindmitc;Linda;C;Mitchell;LCM;Sales;Sales and Marketing;Sales Representative;stepjian
+277;jillcars;Jillian;;Carson;JC;Sales;Sales and Marketing;Sales Representative;stepjian
+278;garrvarg;Garrett;R;Vargas;GRV;Sales;Sales and Marketing;Sales Representative;stepjian
+279;tsvireit;Tsvi;Michael;Reiter;TMR;Sales;Sales and Marketing;Sales Representative;stepjian
+280;pameansm;Pamela;O;Ansman-Wolfe;POA;Sales;Sales and Marketing;Sales Representative;stepjian
+281;shuito;Shu;K;Ito;SKI;Sales;Sales and Marketing;Sales Representative;stepjian
+282;josesara;José;Edvaldo;Saraiva;JES;Sales;Sales and Marketing;Sales Representative;stepjian
+283;davicamp;David;R;Campbell;DRC;Sales;Sales and Marketing;Sales Representative;stepjian
+284;tetemens;Tete;A;Mensa-Annan;TAM;Sales;Sales and Marketing;Sales Representative;stepjian
+285;syedabba;Syed;E;Abbas;SEA;Sales;Sales and Marketing;Pacific Sales Manager;briawelc
+286;lynntsof;Lynn;N;Tsoflias;LNT;Sales;Sales and Marketing;Sales Representative;syedabba
+287;amyalbe;Amy;E;Alberts;AEA;Sales;Sales and Marketing;European Sales Manager;briawelc
+288;rachvald;Rachel;B;Valdez;RBV;Sales;Sales and Marketing;Sales Representative;amyalbe
+289;jaepak;Jae;B;Pak;JBP;Sales;Sales and Marketing;Sales Representative;amyalbe
+290;ranjvark;Ranjit;R;Varkey Chudukatil;RRV;Sales;Sales and Marketing;Sales Representative;amyalbe
+291;anderune;Anders;;Runesson;AR;Information Services;CISO Office;Technical Manager;briawelc

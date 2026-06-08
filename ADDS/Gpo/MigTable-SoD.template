@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-16"?>
+<MigrationTable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/GroupPolicy/GPOOperations/MigrationTable">
+
+    <!-- Source names are resolved from the Backup.xml SecurityGroups section
+         in each backup folder (ad06.zwks.xyz). Multiple sources map to the
+         same destination placeholder; only the entries matching the current
+         backup's groups will resolve at import time. -->
+
+    <!-- T0 SoD PAW -->
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-PAW-InteractiveLogon@ad06.zwks.xyz</Source>
+        <Destination>%InteractiveLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-PAW-RdpLogon@ad06.zwks.xyz</Source>
+        <Destination>%RdpLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-PAW-LocalAdmin@ad06.zwks.xyz</Source>
+        <Destination>%LocalAdminGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+
+    <!-- T0 SoD DS Servers -->
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-Srv-InteractiveLogon@ad06.zwks.xyz</Source>
+        <Destination>%InteractiveLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-Srv-RdpLogon@ad06.zwks.xyz</Source>
+        <Destination>%RdpLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-Srv-LocalAdmin@ad06.zwks.xyz</Source>
+        <Destination>%LocalAdminGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-Srv-ServiceLogon@ad06.zwks.xyz</Source>
+        <Destination>%ServiceLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+
+    <!-- T0 SoD DS SAW -->
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-SAW-InteractiveLogon@ad06.zwks.xyz</Source>
+        <Destination>%InteractiveLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-SAW-RdpLogon@ad06.zwks.xyz</Source>
+        <Destination>%RdpLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DS-SAW-LocalAdmin@ad06.zwks.xyz</Source>
+        <Destination>%LocalAdminGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+
+    <!-- T0 SoD DB Servers (template for generic app servers) -->
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-Srv-InteractiveLogon@ad06.zwks.xyz</Source>
+        <Destination>%InteractiveLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-Srv-RdpLogon@ad06.zwks.xyz</Source>
+        <Destination>%RdpLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-Srv-LocalAdmin@ad06.zwks.xyz</Source>
+        <Destination>%LocalAdminGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-Srv-ServiceLogon@ad06.zwks.xyz</Source>
+        <Destination>%ServiceLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+
+    <!-- T0 SoD DB SAW (template for generic app SAW) -->
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-SAW-InteractiveLogon@ad06.zwks.xyz</Source>
+        <Destination>%InteractiveLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-SAW-RdpLogon@ad06.zwks.xyz</Source>
+        <Destination>%RdpLogonGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>LocalGroup</Type>
+        <Source>Pm-T0-DB-SAW-LocalAdmin@ad06.zwks.xyz</Source>
+        <Destination>%LocalAdminGroup%@%DomainDNSName%</Destination>
+    </Mapping>
+
+    <!-- Well-known principals -->
+    <Mapping>
+        <Type>Unknown</Type>
+        <Source>Administrators</Source>
+        <DestinationSameAsSource />
+    </Mapping>
+    <Mapping>
+        <Type>User</Type>
+        <Source>administrator@ad06.zwks.xyz</Source>
+        <Destination>administrator@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>UniversalGroup</Type>
+        <Source>Enterprise Admins@ad06.zwks.xyz</Source>
+        <Destination>Enterprise Admins@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>Unknown</Type>
+        <Source>Remote Desktop Users</Source>
+        <DestinationSameAsSource />
+    </Mapping>
+    <Mapping>
+        <Type>GlobalGroup</Type>
+        <Source>Domain Admins@ad06.zwks.xyz</Source>
+        <Destination>Domain Admins@%DomainDNSName%</Destination>
+    </Mapping>
+    <Mapping>
+        <Type>Unknown</Type>
+        <Source>Administrator</Source>
+        <DestinationSameAsSource />
+    </Mapping>
+
+</MigrationTable>

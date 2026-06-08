@@ -1,0 +1,9 @@
+Name;Description;Namespace;Query
+WS2025;Windows Server 2025 (build >= 26100);;SELECT * FROM Win32_OperatingSystem WHERE ProductType > 1 AND BuildNumber >= '26100'
+WS2022;Windows Server 2022 (build 20348);;SELECT * FROM Win32_OperatingSystem WHERE ProductType > 1 AND BuildNumber = '20348'
+WSLegacy;Windows Server 2019 and older (build < 20348);;SELECT * FROM Win32_OperatingSystem WHERE ProductType > 1 AND BuildNumber < '20348'
+Win11;Windows 11 (build >= 22000);;SELECT * FROM Win32_OperatingSystem WHERE ProductType = 1 AND BuildNumber >= '22000'
+Win10;Windows 10 (version 10.0, build < 22000);;SELECT * FROM Win32_OperatingSystem WHERE ProductType = 1 AND Version LIKE '10.0.%' AND BuildNumber < '22000'
+WinLegacy;Windows 8.1 and older (version 6.x);;SELECT * FROM Win32_OperatingSystem WHERE ProductType = 1 AND NOT Version LIKE '10.%'
+HasTpm2;TPM 2.0 present, enabled and activated;root\cimv2\security\microsofttpm;SELECT * FROM Win32_Tpm WHERE IsActivated_InitialValue = TRUE AND IsEnabled_InitialValue = TRUE AND SpecVersion LIKE "2.0%"
+PDCe;PDC Emulator FSMO role holder;;SELECT * FROM Win32_ComputerSystem WHERE DomainRole = 5

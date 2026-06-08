@@ -1,0 +1,5 @@
+Name;Target;AuthCondition;TgtLifetimeMins;Mode;RollingNTLMSecret
+_AppDefault;User;;240;Audit;Required
+_AppDefault;Computer;;240;Audit;
+AP-T0-Device-PAW;Computer;SmartCard AND Claim-T0-User;240;Audit;
+AP-T1-Device-PAW;Computer;SmartCard AND Claim-T1-User;240;Audit;

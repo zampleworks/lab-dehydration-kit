@@ -1,0 +1,31 @@
+GpoName;BackupGpoName;Type;WmiFilter;LinkTargets;LinkOrder
+T0 SecB Server Win 2025;T0 SecB Server Win 2025;Computer;WS2025;%T0ComputersOU%;10
+T0 SecB Server Win 2022;T0 SecB Server Win 2025;Computer;WS2022;%T0ComputersOU%;11
+T0 SecB Server Win 2019;T0 SecB Server Win 2025;Computer;WSLegacy;%T0ComputersOU%;12
+T0 SecB Server Credential Guard;T0 SecB Server Credential Guard;Computer;HasTpm2;%T0ComputersOU%;2
+T0 SecB Server Defender Antivirus;T0 SecB Server Defender Antivirus;Computer;;%T0ComputersOU%;3
+T0 SecB Server Edge;T0 SecB Domain Controller Edge;Computer;;%T0ComputersOU%;4
+T1 SecB Server Win 2025;T0 SecB Server Win 2025;Computer;WS2025;%T1ComputersOU%;10
+T1 SecB Server Win 2022;T0 SecB Server Win 2025;Computer;WS2022;%T1ComputersOU%;11
+T1 SecB Server Win 2019;T0 SecB Server Win 2025;Computer;WSLegacy;%T1ComputersOU%;12
+T1 SecB Server Credential Guard;T0 SecB Server Credential Guard;Computer;HasTpm2;%T1ComputersOU%;2
+T1 SecB Server Defender Antivirus;T0 SecB Server Defender Antivirus;Computer;;%T1ComputersOU%;3
+T1 SecB Server Edge;T0 SecB Domain Controller Edge;Computer;;%T1ComputersOU%;4
+T0 SecB DomainController Win 2025;T0 SecB DomainController Win 2025;Computer;WS2025;%DomainControllersOU%;10
+T0 SecB DomainController Win 2022;T0 SecB DomainController Win 2025;Computer;WS2022;%DomainControllersOU%;11
+T0 SecB DomainController Edge;T0 SecB Domain Controller Edge;Computer;;%DomainControllersOU%;3
+T0 SecB DomainController VBS;T0 SecB DomainController VBS;Computer;HasTpm2;%DomainControllersOU%;2
+T0 SecB DomainController Defender Antivirus;T0 SecB Server Defender Antivirus;Computer;;%DomainControllersOU%;4
+T0 SecB DomainController IE;T0 SecB Domain Controller IE;Computer;;%DomainControllersOU%;5
+EA SecB Client Win 11;EA SecB Client Win 11;Computer;Win11;%OrgClientsOU%;10
+EA SecB Client Win 10;EA SecB Client Win 11;Computer;Win10;%OrgClientsOU%;11
+EA SecB Client WinLegacy;EA SecB Client Win 11;Computer;WinLegacy;%OrgClientsOU%;12
+EA SecB Client Bitlocker;EA SecB Client Bitlocker;Computer;;%OrgClientsOU%;2
+EA SecB Client Edge;T0 SecB Domain Controller Edge;Computer;;%OrgClientsOU%;3
+T0 SecB User Admin;T0 SecB User Admin;User;;%T0AdminsOU%;10
+T0 SecB User Admin IE;T0 SecB User Admin IE;User;;%T0AdminsOU%;2
+T1 SecB User Admin;T0 SecB User Admin;User;;%T1AdminsOU%;10
+T1 SecB User Admin IE;T0 SecB User Admin IE;User;;%T1AdminsOU%;2
+T0 SecB User User;T0 SecB User User;User;;%T0StdUsersOU%;10
+T1 SecB User User;T0 SecB User User;User;;%T1StdUsersOU%;10
+EA SecB User User;T0 SecB User User;User;;%OrgEmployeeAcctsOU%;10
